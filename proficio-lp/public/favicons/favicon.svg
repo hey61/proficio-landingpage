@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#2F65AF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E4A85;stop-opacity:1" />
+    </linearGradient>
+  </defs>
+
+  <!-- Background: rounded square in Team Jansen Blue -->
+  <rect width="512" height="512" rx="96" fill="url(#bgGrad)"/>
+
+  <!-- Recreate the 4 colored squares from the logo icon, centered and scaled up -->
+  <!-- The original logo has: dark blue (top-left), cyan (top-right), red (small, center), green (bottom) -->
+  
+  <!-- Dark Blue square (top-left, overlapping) -->
+  <rect x="130" y="110" width="160" height="160" rx="16" fill="#2F65AF" opacity="0.6"/>
+  
+  <!-- Cyan square (top-right) -->
+  <rect x="230" y="100" width="170" height="170" rx="16" fill="#10BBEF"/>
+  
+  <!-- Green square (bottom-right) -->
+  <rect x="220" y="240" width="170" height="170" rx="16" fill="#94C11F"/>
+  
+  <!-- Red square (small, center-left) -->
+  <rect x="170" y="220" width="80" height="80" rx="10" fill="#E30613"/>
+
+</svg>

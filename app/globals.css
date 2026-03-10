@@ -1,0 +1,17 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-behavior: smooth;
+}
+
+::selection {
+  background: rgba(255, 45, 138, 0.2);
+}
+
+@layer utilities {
+  .text-glow-beyond {
+    text-shadow: 0 0 40px rgba(255, 45, 138, 0.3);
+  }
+}

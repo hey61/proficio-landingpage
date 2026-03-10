@@ -1,0 +1,98 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 800" width="600" height="800">
+  <defs>
+    <!-- Pin gradient -->
+    <linearGradient id="pinGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" style="stop-color:#2F65AF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#1E4A85;stop-opacity:1" />
+    </linearGradient>
+    <!-- Subtle shadow for pins -->
+    <filter id="pinShadow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="2" stdDeviation="3" flood-color="#000" flood-opacity="0.25"/>
+    </filter>
+    <!-- Glow for active pin -->
+    <filter id="pinGlow" x="-50%" y="-50%" width="200%" height="200%">
+      <feDropShadow dx="0" dy="0" stdDeviation="6" flood-color="#2F65AF" flood-opacity="0.4"/>
+    </filter>
+    <!-- Map subtle shadow -->
+    <filter id="mapShadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#000" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- Germany outline (simplified, recognizable) -->
+  <path filter="url(#mapShadow)" d="
+    M 290,52
+    L 310,50 335,58 355,55 370,65 385,60 400,70 410,85
+    L 420,80 435,90 440,105 455,110 460,125 450,140
+    L 465,155 475,170 480,190 490,200 495,220 500,240
+    L 495,260 505,275 510,295 505,310 495,325 500,340
+    L 495,355 488,370 480,385 470,395 460,410 455,430
+    L 445,445 440,460 435,475 425,490 415,500 405,515
+    L 395,525 380,530 370,540 360,535 350,545 340,540
+    L 330,550 315,555 305,550 295,560 280,555 270,565
+    L 255,560 245,550 235,555 220,545 210,540 200,530
+    L 190,525 185,510 175,500 170,485 160,475 155,460
+    L 145,445 140,430 135,415 140,400 135,385 130,370
+    L 125,355 130,340 125,325 130,310 135,295 140,280
+    L 145,265 150,250 155,235 160,220 168,210 175,200
+    L 170,185 175,170 185,160 195,150 200,135 210,125
+    L 215,110 225,100 235,90 240,80 250,70 265,62 280,55
+    Z
+  " fill="#E8EDF4" stroke="#2F65AF" stroke-width="1.5" stroke-opacity="0.3"/>
+
+  <!-- State borders (subtle, simplified) -->
+  <path d="M 160,320 L 250,310 310,350 380,330 440,360" 
+        fill="none" stroke="#2F65AF" stroke-width="0.5" stroke-opacity="0.15" stroke-dasharray="4,4"/>
+  <path d="M 200,420 L 280,400 350,430 420,410" 
+        fill="none" stroke="#2F65AF" stroke-width="0.5" stroke-opacity="0.15" stroke-dasharray="4,4"/>
+
+  <!-- Connection lines between locations (subtle) -->
+  <path d="M 275,398 L 325,310 L 380,370" 
+        fill="none" stroke="#2F65AF" stroke-width="1.5" stroke-opacity="0.15" stroke-dasharray="6,4"/>
+
+  <!-- LOCATION 1: Hennef (Köln/Bonn area) – approx position -->
+  <!-- Pin -->
+  <g filter="url(#pinGlow)" transform="translate(275,398)">
+    <!-- Pin body -->
+    <path d="M 0,-32 C -12,-32 -18,-22 -18,-14 C -18,0 0,18 0,18 C 0,18 18,0 18,-14 C 18,-22 12,-32 0,-32 Z" 
+          fill="url(#pinGrad)"/>
+    <!-- Pin dot -->
+    <circle cx="0" cy="-14" r="6" fill="white" opacity="0.9"/>
+  </g>
+  <!-- Label Hennef -->
+  <g transform="translate(275,430)">
+    <rect x="-62" y="-14" width="124" height="52" rx="6" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+    <text x="0" y="4" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="700" fill="#1E293B" text-anchor="middle">Hennef</text>
+    <text x="0" y="22" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#64748B" text-anchor="middle">Köln · Bonn · Siegen</text>
+    <text x="0" y="34" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#64748B" text-anchor="middle">Koblenz</text>
+  </g>
+
+  <!-- LOCATION 2: Kassel – approx position -->
+  <g filter="url(#pinShadow)" transform="translate(325,310)">
+    <path d="M 0,-32 C -12,-32 -18,-22 -18,-14 C -18,0 0,18 0,18 C 0,18 18,0 18,-14 C 18,-22 12,-32 0,-32 Z" 
+          fill="url(#pinGrad)"/>
+    <circle cx="0" cy="-14" r="6" fill="white" opacity="0.9"/>
+  </g>
+  <!-- Label Kassel -->
+  <g transform="translate(325,342)">
+    <rect x="-68" y="-14" width="136" height="52" rx="6" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+    <text x="0" y="4" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="700" fill="#1E293B" text-anchor="middle">Kassel</text>
+    <text x="0" y="22" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#64748B" text-anchor="middle">Nordhessen · Münster</text>
+    <text x="0" y="34" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#64748B" text-anchor="middle">Fulda · Hannover</text>
+  </g>
+
+  <!-- LOCATION 3: Erfurt – approx position -->
+  <g filter="url(#pinShadow)" transform="translate(380,370)">
+    <path d="M 0,-32 C -12,-32 -18,-22 -18,-14 C -18,0 0,18 0,18 C 0,18 18,0 18,-14 C 18,-22 12,-32 0,-32 Z" 
+          fill="url(#pinGrad)"/>
+    <circle cx="0" cy="-14" r="6" fill="white" opacity="0.9"/>
+  </g>
+  <!-- Label Erfurt -->
+  <g transform="translate(380,402)">
+    <rect x="-68" y="-14" width="136" height="52" rx="6" fill="white" stroke="#E2E8F0" stroke-width="1"/>
+    <text x="0" y="4" font-family="Inter, system-ui, sans-serif" font-size="14" font-weight="700" fill="#1E293B" text-anchor="middle">Erfurt</text>
+    <text x="0" y="22" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#64748B" text-anchor="middle">Thüringen</text>
+    <text x="0" y="34" font-family="Inter, system-ui, sans-serif" font-size="10" fill="#64748B" text-anchor="middle">Mitteldeutschland</text>
+  </g>
+
+</svg>
