@@ -12,15 +12,15 @@ export default function Header() {
         <div className="flex items-center gap-3">
           <Image
             src="/logos/team-jansen-logo-white.png"
-            alt="Team Jansen"
-            width={160}
-            height={40}
-            className="h-8 w-auto"
+            alt="Team Jansen – Ideen für digitalen Erfolg"
+            width={600}
+            height={200}
+            className="h-10 lg:h-12 w-auto max-w-[200px] lg:max-w-[240px] object-contain"
             priority
           />
         </div>
         <div className="flex items-center gap-4">
-          <a
+          
             href="tel:+49224292120"
             className="hidden sm:flex text-white text-sm font-semibold hover:text-beyond transition-colors"
           >
