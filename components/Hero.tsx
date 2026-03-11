@@ -26,9 +26,9 @@ export default function Hero() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-block bg-beyond/15 border border-beyond/30 rounded-full px-5 py-2 mb-8"
+          className="inline-block bg-white/15 backdrop-blur-sm border border-white/20 rounded-full px-5 py-2.5 mb-8"
         >
-          <span className="text-beyond text-sm font-semibold">
+          <span className="text-white text-sm font-medium">
             NEU: Xerox Proficio PX300 & PX500 – ab März 2026 live erleben
           </span>
         </motion.div>
