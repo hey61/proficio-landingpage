@@ -9,18 +9,17 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center pt-16">
-      {/* Background Image */}
       <Image
         src="/images/01-hero-druckmuster.png"
-        alt="Gedruckte Druckmuster mit lebendigen Beyond-CMYK-Farben"
+        alt="Locker überlappende Druckbögen mit lebendigen Beyond-CMYK-Farben in Pink, Violett und Berry auf dunklem Schiefer"
         fill
         priority
         quality={85}
         sizes="100vw"
         className="object-cover"
       />
-      {/* Overlay */}
-      <div className="absolute inset-0 bg-hero-overlay" />
+      {/* Darker overlay per Mia's spec */}
+      <div className="absolute inset-0 bg-gradient-to-b from-dark/75 via-dark/65 to-dark/85" />
 
       <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
         <motion.div
@@ -34,7 +33,15 @@ export default function Hero() {
           </span>
         </motion.div>
 
-        <motion.h1
+        {/* SEO H1 (sr-only) with keywords */}
+        <h1 className="sr-only">
+          Beyond CMYK Inline-Veredelung im Produktionsdruck – Xerox Proficio PX300 & PX500 bei Team Jansen
+        </h1>
+
+        {/* Visual headline */}
+        <motion.p
+          role="heading"
+          aria-level={2}
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -42,16 +49,16 @@ export default function Hero() {
         >
           Ihre Kunden wollen mehr als CMYK.{" "}
           <span className="text-beyond">Jetzt können Sie liefern.</span>
-        </motion.h1>
+        </motion.p>
 
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-lg lg:text-xl text-white/75 max-w-2xl mx-auto mb-10 leading-relaxed"
+          className="text-lg lg:text-xl text-white/80 max-w-2xl mx-auto mb-10 leading-relaxed"
         >
-          Xerox Proficio PX300 & PX500 – exklusiv bei Team Jansen, Ihrem Xerox
-          Platinum Partner. Beyond CMYK Inline-Veredelung in einem Durchgang.
+          Xerox Proficio PX300 & PX500 – Inline-Veredelung mit der fünften Farbstation.
+          Fluoreszenz, Spot-Lack und Matt-Effekte in einem Durchgang. Exklusiv bei Team Jansen.
         </motion.p>
 
         <motion.div

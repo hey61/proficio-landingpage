@@ -2,20 +2,21 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import CountUp from "@/components/CountUp";
+import BeforeAfterSlider from "@/components/BeforeAfterSlider";
 
 const stats = [
   { end: 89, prefix: "bis ", suffix: "%", label: "Aufpreis pro Auftrag", source: "Xerox / Keypoint Intelligence" },
-  { end: 40, suffix: "%", label: "Gewinnsteigerung", source: "Xerox Case Study: Zuzu Print" },
-  { end: 55, suffix: "%", label: "Kundennachfrage nach Veredelung", source: "NAPCO-Studie" },
-  { end: 38, suffix: "%", label: "Aufpreis für Fluoreszenz-Effekte", source: "Keypoint Intelligence" },
+  { end: 40, suffix: "%", label: "Gewinnsteigerung durch Inline-Veredelung", source: "Xerox Case Study: Zuzu Print" },
+  { end: 55, suffix: "%", label: "der Kunden fragen nach Veredelungsoptionen", source: "NAPCO-Studie" },
+  { end: 38, suffix: "%", label: "Aufpreis für fluoreszierenden Druck", source: "Keypoint Intelligence" },
 ];
 
 const examples = [
-  { src: "/images/02-visitenkarten.png", alt: "Premium-Visitenkarten mit Beyond CMYK Technologie", label: "Visitenkarten" },
-  { src: "/images/03-broschuere.png", alt: "Marketingbroschüre mit Beyond CMYK Druck", label: "Broschüren" },
-  { src: "/images/04-verpackung-pos.png", alt: "Premium-Verpackung mit Xerox Proficio", label: "Verpackung & POS" },
-  { src: "/images/05-speisekarte-synthetisch.png", alt: "Wasserfeste Speisekarte auf synthetischem Material", label: "Speisekarten" },
-  { src: "/images/06-direktmailing.png", alt: "Personalisierte Direktmailing-Postkarten", label: "Direktmailings" },
+  { src: "/images/02-visitenkarten.png", alt: "Premium-Visitenkarten mit Spot-Lack und Fluoreszenz – Beyond CMYK Digitaldruck-Veredelung", label: "Visitenkarten" },
+  { src: "/images/03-broschuere.png", alt: "Marketingbroschüre mit Glanz- und Matt-Kontrasten durch Beyond CMYK Inline-Veredelung", label: "Broschüren" },
+  { src: "/images/04-verpackung-pos.png", alt: "Premium-Verpackung mit fluoreszierenden Pink- und Violett-Tönen – fünfte Farbstation", label: "Verpackung & POS" },
+  { src: "/images/05-speisekarte-synthetisch.png", alt: "Wasserfeste Speisekarte auf synthetischem Material – Digitaldruck auf Spezialsubstraten", label: "Speisekarten" },
+  { src: "/images/06-direktmailing.png", alt: "Personalisierte Direktmailing-Postkarten mit variabler Beyond CMYK Veredelung – XMPie", label: "Direktmailings" },
 ];
 
 export default function SolutionSection() {
@@ -24,12 +25,13 @@ export default function SolutionSection() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl lg:text-5xl font-bold leading-tight tracking-tight mb-5 max-w-3xl mx-auto">
-            Beyond CMYK: Aus Druckaufträgen werden{" "}
+            Beyond CMYK Inline-Veredelung: Aus Druckaufträgen werden{" "}
             <span className="text-beyond">Premiumprodukte</span>
           </h2>
           <p className="text-lg text-muted max-w-2xl mx-auto leading-relaxed">
-            Inline-Veredelung in einem einzigen Produktionsdurchgang. Kein Outsourcing.
-            Volle Wertschöpfung im Haus. Premiumprodukte zu Digitaldruckgeschwindigkeit.
+            Die fünfte Farbstation macht den Unterschied: Fluoreszenz, Spot-Lack und Matt-Effekte
+            inline im Produktionsdruck – in einem einzigen Durchgang. Kein Outsourcing, volle
+            Wertschöpfung im Haus, Premiumprodukte zu Digitaldruckgeschwindigkeit.
           </p>
         </div>
 
@@ -53,8 +55,24 @@ export default function SolutionSection() {
           ))}
         </div>
 
+        {/* Before/After Slider */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="max-w-2xl mx-auto mb-16"
+        >
+          <h3 className="text-xl font-bold mb-4 text-center">
+            Der Unterschied: Standard CMYK vs. Beyond CMYK
+          </h3>
+          <p className="text-sm text-muted text-center mb-6">
+            Ziehen Sie den Regler und sehen Sie den Digitaldruck Wow-Effekt selbst.
+          </p>
+          <BeforeAfterSlider />
+        </motion.div>
+
         {/* Application Examples */}
-        <h3 className="text-xl font-bold mb-5">Anwendungsbeispiele</h3>
+        <h3 className="text-xl font-bold mb-5">Anwendungsbeispiele für Digitaldruck-Veredelung</h3>
         <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory">
           {examples.map((ex, i) => (
             <motion.div
