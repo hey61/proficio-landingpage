@@ -5,12 +5,12 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"], display: "swap" });
 
 export const metadata: Metadata = {
-  title: "Xerox Proficio PX300 & PX500 | Beyond CMYK Produktionsdruck | Team Jansen",
-  description: "Bis zu 89 % Aufpreis pro Auftrag mit Beyond CMYK. Xerox Proficio PX300 & PX500 – jetzt bei Team Jansen. Demonstrationstermin vereinbaren.",
+  title: "Beyond CMYK Inline-Veredelung | Xerox Proficio PX300 & PX500 | Team Jansen",
+  description: "Bis zu 89% Aufpreis pro Auftrag durch Inline-Veredelung. Xerox Proficio PX300 & PX500 mit 5. Farbstation. Jetzt Demo bei Team Jansen buchen.",
   metadataBase: new URL("https://proficio-landingpage.vercel.app"),
   openGraph: {
-    title: "Xerox Proficio – Beyond CMYK Produktionsdruck",
-    description: "Bis zu 89 % Aufpreis pro Auftrag. Inline-Veredelung in einem Durchgang. Jetzt Demonstrationstermin bei Team Jansen.",
+    title: "Beyond CMYK Inline-Veredelung | Xerox Proficio PX300 & PX500",
+    description: "Bis zu 89% Aufpreis pro Auftrag. Inline-Veredelung im Produktionsdruck. Jetzt Demonstrationstermin bei Team Jansen.",
     type: "website",
     images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
   },
@@ -31,6 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="de" className={inter.className}>
       <head>
+        {/* Organization Schema */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -40,12 +41,61 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               name: "Team Jansen",
               url: "https://teamjansen.de",
               description: "Xerox Platin Partner – Deutschlands größter Xerox Vertragspartner",
-              address: [
-                { "@type": "PostalAddress", addressLocality: "Hennef", addressRegion: "NRW", addressCountry: "DE" },
-                { "@type": "PostalAddress", addressLocality: "Kassel", addressRegion: "HE", addressCountry: "DE" },
-                { "@type": "PostalAddress", addressLocality: "Erfurt", addressRegion: "TH", addressCountry: "DE" },
-              ],
               telephone: "+49224292120",
+            }),
+          }}
+        />
+        {/* Product Schema: PX300 */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Product",
+              name: "Xerox Proficio PX300",
+              brand: { "@type": "Brand", name: "Xerox" },
+              description: "Produktionsdrucker mit Beyond CMYK Inline-Veredelung. 5. Farbstation für Fluorescent Pink, Clear und Low-Gloss Clear. 85 Seiten/Minute, 2400x2400 DPI Ultra HD. Synthetische Medien bis 400 gsm.",
+              offers: {
+                "@type": "Offer",
+                availability: "https://schema.org/PreOrder",
+                seller: { "@type": "Organization", name: "Team Jansen" },
+              },
+            }),
+          }}
+        />
+        {/* Product Schema: PX500 */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Product",
+              name: "Xerox Proficio PX500",
+              brand: { "@type": "Brand", name: "Xerox" },
+              description: "Produktionsdrucker mit Beyond CMYK Inline-Veredelung. 5. Farbstation für Fluorescent Pink, Clear und Low-Gloss Clear. 100 Seiten/Minute, 2400x2400 DPI Ultra HD, PredictPrint AI Media Manager.",
+              offers: {
+                "@type": "Offer",
+                availability: "https://schema.org/PreOrder",
+                seller: { "@type": "Organization", name: "Team Jansen" },
+              },
+            }),
+          }}
+        />
+        {/* LocalBusiness Schema */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              name: "Team Jansen – Xerox Platin Partner",
+              telephone: "+49224292120",
+              url: "https://teamjansen.de",
+              address: [
+                { "@type": "PostalAddress", addressLocality: "Hennef", addressRegion: "Nordrhein-Westfalen", addressCountry: "DE" },
+                { "@type": "PostalAddress", addressLocality: "Kassel", addressRegion: "Hessen", addressCountry: "DE" },
+                { "@type": "PostalAddress", addressLocality: "Erfurt", addressRegion: "Thüringen", addressCountry: "DE" },
+              ],
             }),
           }}
         />

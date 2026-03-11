@@ -5,6 +5,7 @@ import SolutionSection from "@/components/SolutionSection";
 import ProductSection from "@/components/ProductSection";
 import TrustSection from "@/components/TrustSection";
 import FAQSection from "@/components/FAQSection";
+import SEOTextBlock from "@/components/SEOTextBlock";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 
@@ -18,6 +19,7 @@ export default function Home() {
       <ProductSection />
       <TrustSection />
       <FAQSection />
+      <SEOTextBlock />
       <CTASection />
       <Footer />
     </main>
