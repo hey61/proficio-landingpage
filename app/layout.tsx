@@ -7,7 +7,7 @@ const inter = Inter({ subsets: ["latin"], display: "swap" });
 export const metadata: Metadata = {
   title: "Beyond CMYK Inline-Veredelung | Xerox Proficio PX300 & PX500 | Team Jansen",
   description: "Bis zu 89% Aufpreis pro Auftrag durch Inline-Veredelung. Xerox Proficio PX300 & PX500 mit 5. Farbstation. Jetzt Demo bei Team Jansen buchen.",
-  metadataBase: new URL("https://proficio-landingpage.vercel.app"),
+  metadataBase: new URL("https://proficio-digitaldruck.de"),
   openGraph: {
     title: "Beyond CMYK Inline-Veredelung | Xerox Proficio PX300 & PX500",
     description: "Bis zu 89% Aufpreis pro Auftrag. Inline-Veredelung im Produktionsdruck. Jetzt Demonstrationstermin bei Team Jansen.",
