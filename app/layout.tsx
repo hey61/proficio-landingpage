@@ -45,42 +45,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
             }),
           }}
         />
-        {/* Product Schema: PX300 */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Product",
-              name: "Xerox Proficio PX300",
-              brand: { "@type": "Brand", name: "Xerox" },
-              description: "Produktionsdrucker mit Beyond CMYK Inline-Veredelung. 5. Farbstation für Fluorescent Pink, Clear und Low-Gloss Clear. 85 Seiten/Minute, 2400x2400 DPI Ultra HD. Synthetische Medien bis 400 gsm.",
-              offers: {
-                "@type": "Offer",
-                availability: "https://schema.org/PreOrder",
-                seller: { "@type": "Organization", name: "Team Jansen" },
-              },
-            }),
-          }}
-        />
-        {/* Product Schema: PX500 */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Product",
-              name: "Xerox Proficio PX500",
-              brand: { "@type": "Brand", name: "Xerox" },
-              description: "Produktionsdrucker mit Beyond CMYK Inline-Veredelung. 5. Farbstation für Fluorescent Pink, Clear und Low-Gloss Clear. 100 Seiten/Minute, 2400x2400 DPI Ultra HD, PredictPrint AI Media Manager.",
-              offers: {
-                "@type": "Offer",
-                availability: "https://schema.org/PreOrder",
-                seller: { "@type": "Organization", name: "Team Jansen" },
-              },
-            }),
-          }}
-        />
+
         {/* LocalBusiness Schema */}
         <script
           type="application/ld+json"
