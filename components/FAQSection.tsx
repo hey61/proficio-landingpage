@@ -35,6 +35,14 @@ const faqs = [
     q: "Welche Finanzierungsmodelle gibt es?",
     a: "Leasing, Mietkauf und klassische Finanzierung – abgestimmt auf Ihre Investitionsplanung. Kontaktieren Sie uns für eine unverbindliche Berechnung."
   },
+  {
+    q: "Welche Vorteile hat die Xerox Proficio gegenüber anderen Produktionsdrucksystemen?",
+    a: "Im Segment der Produktionsdrucker mit Inline-Veredelung positioniert sich die Xerox Proficio mit einer Kombination aus Geschwindigkeit, Automatisierung und fünfter Farbstation. Anders als die Canon imagePRESS V-Serie, die keine Inline-Veredelung mit Sonderfarben bietet, ermöglicht die Proficio Fluoreszenz, Spot-Lack und Matt-Effekte in einem Druckdurchgang. Die Ricoh Pro C7500 bietet ebenfalls eine fünfte Farbstation mit Sonderfarben wie Clear, Weiß, Neon-Pink oder Gold – allerdings bei maximal 95 Seiten pro Minute und ohne die Echtzeit-Farbdichte- und Registerautomation der Proficio. Die Konica Minolta AccurioPress-Serie setzt für Veredelung auf externe MGI-Maschinen, die einen separaten Produktionsschritt erfordern. Die Proficio PX500 vereint mit 100 Seiten pro Minute, Ultra-HD-Auflösung und dem exklusiven Fiery FS700X Print Server Veredelung und Produktionsgeschwindigkeit in einem System."
+  },
+  {
+    q: "Ist die Proficio eine Alternative zu meinem aktuellen Produktionsdrucker?",
+    a: "Die Xerox Proficio PX300 und PX500 sind für Druckdienstleister konzipiert, die im mittleren bis hohen Produktionsvolumen arbeiten und sich über Veredelung differenzieren wollen. Typische Upgrade-Szenarien: Sie produzieren auf einer Canon imagePRESS, Ricoh Pro C9500, Konica Minolta AccurioPress, Kyocera TASKalfa oder einem Triumph Adler System und suchen eine Maschine, die Inline-Veredelung ohne separaten Arbeitsschritt ermöglicht. Sie nutzen eine Xerox PrimeLink oder Versant und wollen auf mehr Geschwindigkeit, Automation und Beyond-CMYK-Fähigkeiten umsteigen. Oder Sie lagern Veredelung aktuell an externe Dienstleister aus und wollen die volle Wertschöpfung ins Haus holen. Team Jansen berät Sie gerne, ob die PX300 oder PX500 zu Ihrem Auftragsportfolio passt."
+  },
 ];
 
 export default function FAQSection() {
