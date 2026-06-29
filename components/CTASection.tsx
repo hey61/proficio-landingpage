@@ -1,138 +1,483 @@
 "use client";
-import { useState, FormEvent } from "react";
+
+import { FormEvent, useState } from "react";
+import Link from "next/link";
+
+type FormDataState = {
+  name: string;
+  company: string;
+  email: string;
+  phone: string;
+  postcode: string;
+  currentSystem: string;
+  volume: string;
+  interest: string;
+  nextStep: string;
+  horizon: string;
+  productionGoal: string;
+  privacy: boolean;
+  website: string;
+};
+
+const initialForm: FormDataState = {
+  name: "",
+  company: "",
+  email: "",
+  phone: "",
+  postcode: "",
+  currentSystem: "",
+  volume: "",
+  interest: "",
+  nextStep: "",
+  horizon: "",
+  productionGoal: "",
+  privacy: false,
+  website: "",
+};
+
+const inputClass =
+  "w-full rounded-lg border border-border bg-white px-4 py-3 text-sm text-foreground outline-none transition focus:border-primary focus:ring-2 focus:ring-primary/25";
 
 export default function CTASection() {
+  const [step, setStep] = useState<1 | 2>(1);
+  const [form, setForm] = useState<FormDataState>(initialForm);
+  const [sending, setSending] = useState(false);
   const [sent, setSent] = useState(false);
+  const [error, setError] = useState("");
 
-  const handleSubmit = (e: FormEvent) => {
-    e.preventDefault();
-    // TODO: Connect to form backend (e.g. n8n webhook or Formspree)
-    setSent(true);
+  const update = <K extends keyof FormDataState>(
+    field: K,
+    value: FormDataState[K],
+  ) => {
+    setForm((current) => ({ ...current, [field]: value }));
   };
 
-  const hubspotLinks = [
-    { city: "Hennef", region: "Köln / Bonn", url: "https://meetings-eu1.hubspot.com/schauraum/termin-hennef?utm_source=landingpage&utm_medium=organic&utm_campaign=ProficioLP2026" },
-    { city: "Kassel", region: "Nordhessen", url: "https://meetings-eu1.hubspot.com/schauraum-kassel/termin-kassel?utm_source=landingpage&utm_medium=organic&utm_campaign=ProficioLP2026" },
-    { city: "Erfurt", region: "Thüringen", url: "https://meetings-eu1.hubspot.com/schauraum-erfurt/termin-erfurt?utm_source=landingpage&utm_medium=organic&utm_campaign=ProficioLP2026" },
-  ];
+  const goToStepTwo = () => {
+    setError("");
+    if (
+      !form.name.trim() ||
+      !form.company.trim() ||
+      !form.email.trim() ||
+      !form.postcode.trim()
+    ) {
+      setError("Bitte füllen Sie alle Pflichtfelder aus.");
+      return;
+    }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(form.email)) {
+      setError("Bitte geben Sie eine gültige E-Mail-Adresse an.");
+      return;
+    }
+    setStep(2);
+  };
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    setError("");
+
+    if (step === 1) {
+      goToStepTwo();
+      return;
+    }
+
+    if (
+      !form.volume ||
+      !form.interest ||
+      !form.nextStep ||
+      !form.horizon ||
+      !form.privacy
+    ) {
+      setError("Bitte füllen Sie alle Pflichtfelder aus und bestätigen Sie den Datenschutzhinweis.");
+      return;
+    }
+
+    setSending(true);
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(form),
+      });
+      const result = (await response.json()) as { error?: string };
+      if (!response.ok) {
+        throw new Error(result.error || "Die Anfrage konnte nicht versendet werden.");
+      }
+      setSent(true);
+      setForm(initialForm);
+    } catch (submissionError) {
+      setError(
+        submissionError instanceof Error
+          ? submissionError.message
+          : "Die Anfrage konnte nicht versendet werden.",
+      );
+    } finally {
+      setSending(false);
+    }
+  };
 
   return (
     <section id="kontakt" className="bg-primary-darker py-24 lg:py-32">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-5xl font-bold text-white leading-tight tracking-tight mb-4">
-            Erleben Sie Beyond CMYK –{" "}
-            <span className="text-beyond">live in Ihrem Schauraum</span>
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="mx-auto max-w-3xl text-center">
+          <div className="mb-4 text-sm font-bold uppercase tracking-[0.18em] text-beyond">
+            Kostenloser Erstcheck
+          </div>
+          <h2 className="text-3xl font-bold leading-tight tracking-tight text-white lg:text-5xl">
+            Passt die Proficio zu Ihrem{" "}
+            <span className="text-beyond">nächsten Entwicklungsschritt?</span>
           </h2>
-          <p className="text-lg text-white/65 max-w-xl mx-auto">
-            Buchen Sie einen kostenlosen Demonstrationstermin – mit Ihren eigenen Druckdaten.
+          <p className="mt-6 text-lg leading-relaxed text-white/60">
+            Beschreiben Sie kurz Ihre heutige Produktion und Ihr Ziel. Ich prüfe
+            Ihre Angaben persönlich und melde mich mit einer ersten Einordnung.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 max-w-5xl mx-auto">
-          {/* Form */}
-          {!sent ? (
-            <form onSubmit={handleSubmit} className="bg-white rounded-2xl p-8">
-              <h3 className="text-lg font-bold mb-6">Jetzt anfragen</h3>
-
-              {/* Honeypot */}
-              <input type="text" name="_gotcha" className="hidden" tabIndex={-1} autoComplete="off" />
-
-              {[
-                { name: "name", label: "Name *", type: "text", ph: "Max Mustermann", req: true },
-                { name: "email", label: "E-Mail *", type: "email", ph: "max@druckerei.de", req: true },
-                { name: "company", label: "Unternehmen", type: "text", ph: "Mustermann Druck GmbH", req: false },
-                { name: "phone", label: "Telefon", type: "tel", ph: "+49 123 456789", req: false },
-              ].map((f) => (
-                <div key={f.name} className="mb-4">
-                  <label className="block text-sm font-semibold mb-1.5">{f.label}</label>
-                  <input
-                    type={f.type}
-                    name={f.name}
-                    placeholder={f.ph}
-                    required={f.req}
-                    className="w-full px-4 py-3 rounded-lg border border-border text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                  />
-                </div>
-              ))}
-
-              <div className="mb-4">
-                <label className="block text-sm font-semibold mb-1.5">Interesse an</label>
-                <select
-                  name="interest"
-                  className="w-full px-4 py-3 rounded-lg border border-border text-sm bg-white focus:outline-none focus:ring-2 focus:ring-primary"
-                >
-                  <option value="demo">Demonstrationstermin im Schauraum</option>
-                  <option value="beratung">Persönliche Beratung (telefonisch/vor Ort)</option>
-                  <option value="fruehbucher">Frühbucher-Informationen</option>
-                </select>
-              </div>
-
-              <div className="flex gap-2 mb-6 items-start">
-                <input type="checkbox" id="dsgvo" required className="mt-1 accent-primary" />
-                <label htmlFor="dsgvo" className="text-xs text-muted leading-relaxed">
-                  Ich bin damit einverstanden, dass Team Jansen mich zur Beratung rund um die
-                  Xerox Proficio kontaktiert.{" "}
-                  <a href="https://teamjansen.de/datenschutz" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
-                    Datenschutzerklärung
-                  </a>
-                </label>
-              </div>
-
-              <button
-                type="submit"
-                className="w-full bg-beyond text-white rounded-lg py-4 text-base font-bold hover:brightness-110 hover:scale-[1.02] transition-all shadow-glow-accent"
+        <div className="mx-auto mt-12 grid max-w-6xl gap-9 lg:grid-cols-[1.25fr_0.75fr]">
+          <div className="rounded-2xl bg-white p-6 shadow-2xl sm:p-8">
+            {sent ? (
+              <div
+                className="flex min-h-[520px] flex-col items-center justify-center text-center"
+                role="status"
               >
-                Termin anfragen
-              </button>
-            </form>
-          ) : (
-            <div className="bg-white rounded-2xl p-8 flex flex-col items-center justify-center text-center min-h-[400px]">
-              <div className="text-5xl mb-4">✓</div>
-              <h3 className="text-xl font-bold mb-3">Vielen Dank!</h3>
-              <p className="text-muted max-w-xs">
-                Wir melden uns innerhalb von zwei Werktagen bei Ihnen – persönlich, nicht per Autoresponder.
-              </p>
-            </div>
-          )}
+                <div className="flex h-16 w-16 items-center justify-center rounded-full bg-success/10 text-3xl font-bold text-success">
+                  ✓
+                </div>
+                <h3 className="mt-6 text-2xl font-bold">Ihre Anfrage ist angekommen.</h3>
+                <p className="mt-4 max-w-md leading-relaxed text-muted">
+                  Ich prüfe Ihre Angaben persönlich und melde mich bei Ihnen.
+                  Ihre Daten werden nicht automatisch an einen Partner
+                  weitergegeben.
+                </p>
+                <button
+                  type="button"
+                  onClick={() => {
+                    setSent(false);
+                    setStep(1);
+                  }}
+                  className="mt-7 text-sm font-semibold text-primary underline underline-offset-4"
+                >
+                  Weitere Anfrage stellen
+                </button>
+              </div>
+            ) : (
+              <form onSubmit={handleSubmit} noValidate>
+                <div className="mb-7 flex items-center gap-3">
+                  {[1, 2].map((number) => (
+                    <div key={number} className="flex flex-1 items-center gap-3">
+                      <span
+                        className={`flex h-9 w-9 shrink-0 items-center justify-center rounded-full text-sm font-bold ${
+                          step >= number
+                            ? "bg-primary-darker text-white"
+                            : "bg-light-bg text-muted"
+                        }`}
+                      >
+                        {number}
+                      </span>
+                      <span
+                        className={`hidden text-sm font-semibold sm:block ${
+                          step >= number ? "text-foreground" : "text-muted"
+                        }`}
+                      >
+                        {number === 1 ? "Kontakt" : "Ausgangslage"}
+                      </span>
+                      {number === 1 && <span className="h-px flex-1 bg-border" />}
+                    </div>
+                  ))}
+                </div>
 
-          {/* Contact Info */}
-          <div className="flex flex-col justify-center">
-            <div className="mb-10">
-              <div className="text-xs text-white/40 font-semibold uppercase tracking-widest mb-2">
-                Sie telefonieren lieber?
+                <input
+                  type="text"
+                  name="website"
+                  value={form.website}
+                  onChange={(event) => update("website", event.target.value)}
+                  tabIndex={-1}
+                  autoComplete="off"
+                  className="hidden"
+                  aria-hidden="true"
+                />
+
+                {step === 1 ? (
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    <Field label="Vor- und Nachname *" htmlFor="name">
+                      <input
+                        id="name"
+                        name="name"
+                        autoComplete="name"
+                        required
+                        value={form.name}
+                        onChange={(event) => update("name", event.target.value)}
+                        className={inputClass}
+                        placeholder="Max Mustermann"
+                      />
+                    </Field>
+                    <Field label="Unternehmen *" htmlFor="company">
+                      <input
+                        id="company"
+                        name="company"
+                        autoComplete="organization"
+                        required
+                        value={form.company}
+                        onChange={(event) => update("company", event.target.value)}
+                        className={inputClass}
+                        placeholder="Mustermann Druck GmbH"
+                      />
+                    </Field>
+                    <Field label="Geschäftliche E-Mail *" htmlFor="email">
+                      <input
+                        id="email"
+                        name="email"
+                        type="email"
+                        autoComplete="email"
+                        required
+                        value={form.email}
+                        onChange={(event) => update("email", event.target.value)}
+                        className={inputClass}
+                        placeholder="max@druckerei.de"
+                      />
+                    </Field>
+                    <Field label="Telefon" htmlFor="phone">
+                      <input
+                        id="phone"
+                        name="phone"
+                        type="tel"
+                        autoComplete="tel"
+                        value={form.phone}
+                        onChange={(event) => update("phone", event.target.value)}
+                        className={inputClass}
+                        placeholder="+49 ..."
+                      />
+                    </Field>
+                    <div className="sm:col-span-2">
+                      <Field label="Postleitzahl / Region *" htmlFor="postcode">
+                        <input
+                          id="postcode"
+                          name="postcode"
+                          autoComplete="postal-code"
+                          required
+                          value={form.postcode}
+                          onChange={(event) => update("postcode", event.target.value)}
+                          className={inputClass}
+                          placeholder="99084 / Thüringen"
+                        />
+                      </Field>
+                    </div>
+                    <div className="sm:col-span-2">
+                      <button
+                        type="button"
+                        onClick={goToStepTwo}
+                        className="mt-2 w-full rounded-lg bg-beyond py-4 text-base font-bold text-white shadow-glow-accent transition-all hover:brightness-110"
+                      >
+                        Weiter zur Ausgangslage
+                      </button>
+                    </div>
+                  </div>
+                ) : (
+                  <div className="grid gap-4 sm:grid-cols-2">
+                    <Field label="Heutiges Produktionssystem" htmlFor="currentSystem">
+                      <input
+                        id="currentSystem"
+                        name="currentSystem"
+                        value={form.currentSystem}
+                        onChange={(event) => update("currentSystem", event.target.value)}
+                        className={inputClass}
+                        placeholder="Hersteller / Modell"
+                      />
+                    </Field>
+                    <Field label="Monatliches Farbvolumen *" htmlFor="volume">
+                      <select
+                        id="volume"
+                        name="volume"
+                        required
+                        value={form.volume}
+                        onChange={(event) => update("volume", event.target.value)}
+                        className={inputClass}
+                      >
+                        <option value="">Bitte wählen</option>
+                        <option>unter 25.000</option>
+                        <option>25.000–75.000</option>
+                        <option>75.000–150.000</option>
+                        <option>über 150.000</option>
+                        <option>noch unklar</option>
+                      </select>
+                    </Field>
+                    <Field label="Hauptinteresse *" htmlFor="interest">
+                      <select
+                        id="interest"
+                        name="interest"
+                        required
+                        value={form.interest}
+                        onChange={(event) => update("interest", event.target.value)}
+                        className={inputClass}
+                      >
+                        <option value="">Bitte wählen</option>
+                        <option>Beyond CMYK</option>
+                        <option>Ersatzinvestition</option>
+                        <option>mehr Kapazität</option>
+                        <option>Automatisierung</option>
+                        <option>synthetische Medien</option>
+                        <option>noch offen</option>
+                      </select>
+                    </Field>
+                    <Field label="Gewünschter nächster Schritt *" htmlFor="nextStep">
+                      <select
+                        id="nextStep"
+                        name="nextStep"
+                        required
+                        value={form.nextStep}
+                        onChange={(event) => update("nextStep", event.target.value)}
+                        className={inputClass}
+                      >
+                        <option value="">Bitte wählen</option>
+                        <option>erste Einordnung</option>
+                        <option>Muster ansehen</option>
+                        <option>Demonstration</option>
+                        <option>konkretes Partnergespräch</option>
+                      </select>
+                    </Field>
+                    <div className="sm:col-span-2">
+                      <Field label="Investitionshorizont *" htmlFor="horizon">
+                        <select
+                          id="horizon"
+                          name="horizon"
+                          required
+                          value={form.horizon}
+                          onChange={(event) => update("horizon", event.target.value)}
+                          className={inputClass}
+                        >
+                          <option value="">Bitte wählen</option>
+                          <option>0–3 Monate</option>
+                          <option>4–6 Monate</option>
+                          <option>7–12 Monate</option>
+                          <option>mehr als 12 Monate</option>
+                          <option>noch offen</option>
+                        </select>
+                      </Field>
+                    </div>
+                    <div className="sm:col-span-2">
+                      <Field
+                        label="Was möchten Sie künftig produzieren?"
+                        htmlFor="productionGoal"
+                      >
+                        <textarea
+                          id="productionGoal"
+                          name="productionGoal"
+                          rows={4}
+                          value={form.productionGoal}
+                          onChange={(event) => update("productionGoal", event.target.value)}
+                          className={inputClass}
+                          placeholder="Produkte, Anwendungen, heutige Engpässe ..."
+                        />
+                      </Field>
+                    </div>
+
+                    <div className="sm:col-span-2">
+                      <label className="flex items-start gap-3 rounded-xl bg-light-bg p-4 text-xs leading-relaxed text-muted">
+                        <input
+                          type="checkbox"
+                          name="privacy"
+                          required
+                          checked={form.privacy}
+                          onChange={(event) => update("privacy", event.target.checked)}
+                          className="mt-0.5 h-4 w-4 shrink-0 accent-primary"
+                        />
+                        <span>
+                          Ich habe die{" "}
+                          <Link
+                            href="/datenschutz"
+                            target="_blank"
+                            rel="noreferrer"
+                            className="font-semibold text-primary underline"
+                          >
+                            Datenschutzerklärung
+                          </Link>{" "}
+                          zur Kenntnis genommen. Meine Angaben werden zur
+                          Beantwortung der Anfrage verarbeitet. Eine
+                          Partnerweitergabe erfolgt erst nach gesonderter
+                          Abstimmung und Zustimmung. *
+                        </span>
+                      </label>
+                    </div>
+
+                    <div className="flex gap-3 sm:col-span-2">
+                      <button
+                        type="button"
+                        onClick={() => {
+                          setError("");
+                          setStep(1);
+                        }}
+                        className="rounded-lg border border-border px-5 py-4 text-sm font-bold text-muted transition-colors hover:bg-light-bg"
+                      >
+                        Zurück
+                      </button>
+                      <button
+                        type="submit"
+                        disabled={sending}
+                        className="flex-1 rounded-lg bg-beyond py-4 text-base font-bold text-white shadow-glow-accent transition-all hover:brightness-110 disabled:cursor-wait disabled:opacity-60"
+                      >
+                        {sending ? "Wird gesendet …" : "Fachcheck anfragen"}
+                      </button>
+                    </div>
+                  </div>
+                )}
+
+                <div aria-live="polite" className="mt-4 min-h-5 text-sm text-red-700">
+                  {error}
+                </div>
+              </form>
+            )}
+          </div>
+
+          <aside className="flex flex-col justify-center text-white">
+            <div className="rounded-2xl border border-white/10 bg-white/5 p-7">
+              <div className="text-sm font-bold uppercase tracking-[0.16em] text-beyond">
+                Direkt erreichbar
               </div>
               <a
-                href="tel:+49224292120"
-                className="text-3xl lg:text-4xl font-extrabold text-white hover:text-beyond transition-colors"
+                href="tel:+493614229616"
+                className="mt-5 block text-3xl font-extrabold transition-colors hover:text-beyond"
               >
-                +49 (0) 2242 9212-0
+                0361 4229616
               </a>
-              <p className="text-sm text-white/50 mt-2">
-                Mo–Fr 8:00–17:00 Uhr
-              </p>
+              <a
+                href="mailto:jens@proficio-digitaldruck.de"
+                className="mt-3 block break-all text-sm text-white/70 transition-colors hover:text-white"
+              >
+                jens@proficio-digitaldruck.de
+              </a>
             </div>
 
-            <div>
-              <div className="text-xs text-white/40 font-semibold uppercase tracking-widest mb-4">
-                Schauraum-Termin direkt buchen
-              </div>
-              {hubspotLinks.map((loc, i) => (
-                <a
-                  key={i}
-                  href={loc.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block px-5 py-3.5 rounded-xl border border-white/20 text-white mb-2.5 text-sm font-semibold hover:bg-white/10 transition-colors"
-                >
-                  📍 {loc.city}{" "}
-                  <span className="text-white/50 font-normal">– {loc.region}</span>
-                </a>
-              ))}
+            <div className="mt-5 rounded-2xl border border-white/10 bg-white/5 p-7">
+              <h3 className="text-lg font-bold">Was danach passiert</h3>
+              <ol className="mt-5 space-y-4 text-sm leading-relaxed text-white/60">
+                <li>1. Ich prüfe Ihre Angaben persönlich.</li>
+                <li>2. Wir klären offene Fragen direkt miteinander.</li>
+                <li>
+                  3. Nur wenn es sinnvoll ist und Sie zustimmen, stelle ich den
+                  Kontakt zu einem Umsetzungspartner her.
+                </li>
+              </ol>
             </div>
-          </div>
+          </aside>
         </div>
       </div>
     </section>
+  );
+}
+
+function Field({
+  label,
+  htmlFor,
+  children,
+}: {
+  label: string;
+  htmlFor: string;
+  children: React.ReactNode;
+}) {
+  return (
+    <div>
+      <label htmlFor={htmlFor} className="mb-1.5 block text-sm font-semibold">
+        {label}
+      </label>
+      {children}
+    </div>
   );
 }

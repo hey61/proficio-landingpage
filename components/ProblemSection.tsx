@@ -1,51 +1,74 @@
 "use client";
-import { motion } from "framer-motion";
-import CountUp from "@/components/CountUp";
+
+import { motion } from "motion/react";
+
+const checks = [
+  {
+    number: "01",
+    title: "Anwendungen",
+    text: "Welche Produkte gewinnen durch Fluorescent Pink, Clear oder Low-Gloss Clear?",
+  },
+  {
+    number: "02",
+    title: "Nachfrage",
+    text: "Welche Bestandskunden und Zielbranchen bezahlen für diesen Mehrwert?",
+  },
+  {
+    number: "03",
+    title: "Produktion",
+    text: "Passen Volumen, Medien, Workflow und Weiterverarbeitung zusammen?",
+  },
+  {
+    number: "04",
+    title: "Wirtschaftlichkeit",
+    text: "Welche zusätzliche Wertschöpfung ist realistisch – und welcher Aufwand steht ihr gegenüber?",
+  },
+] as const;
 
 export default function ProblemSection() {
-  const stats = [
-    { end: 55, suffix: "%", label: "der Druckeinkäufer bevorzugen Druckereien mit Veredelungsoptionen", source: "NAPCO-Studie" },
-    { end: 100, suffix: "%", label: "Preiskampf bei reinem Standard-CMYK-Digitaldruck", source: "Branchentrend 2026" },
-    { end: 40, suffix: "%", label: "der Marge fließt an externe Veredelungs-Dienstleister", source: "Kalkulationsbeispiel" },
-  ];
-
   return (
-    <section id="problem" className="bg-primary-darker py-24 lg:py-32">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="max-w-3xl mb-12">
-          <h2 className="text-3xl lg:text-5xl font-bold text-white leading-tight tracking-tight mb-6">
-            Die Margen im Standard-Digitaldruck sinken – Differenzierung wird überlebenswichtig
-          </h2>
-          <p className="text-base lg:text-lg text-white/70 leading-relaxed mb-4">
-            Wer heute ausschließlich in CMYK produziert, konkurriert über den Preis – und das ist
-            ein Wettbewerb, den auf Dauer niemand gewinnt. Die Margen im Produktionsdruck sinken seit Jahren,
-            während die Erwartungen der Kunden steigen: auffälligere Materialien, haptische Effekte,
-            Veredelungen, die aus einem Druckprodukt ein Erlebnis machen.
-          </p>
-          <p className="text-base lg:text-lg text-white/70 leading-relaxed">
-            Digitaldruck-Veredelung auslagern heißt: Marge verschenken, längere Durchlaufzeiten und
-            Abhängigkeit von Dritten. Der Fachkräftemangel macht manuelle Nachbearbeitung zusätzlich teurer.
-            Was es braucht, ist Inline-Veredelung im Produktionsdruck – Technologie, die Veredelung
-            direkt in den Produktionsprozess integriert.
+    <section id="chancen" className="bg-primary-darker py-24 lg:py-32">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="grid gap-12 lg:grid-cols-[0.9fr_1.35fr] lg:items-end">
+          <div>
+            <div className="mb-4 text-sm font-bold uppercase tracking-[0.18em] text-beyond">
+              Erst prüfen, dann investieren
+            </div>
+            <h2 className="text-3xl font-bold leading-tight tracking-tight text-white lg:text-5xl">
+              Differenzierung muss sich rechnen
+            </h2>
+            <p className="mt-6 text-lg leading-relaxed text-white/70">
+              Eine fünfte Farbstation eröffnet neue Anwendungen – sie garantiert
+              aber noch kein profitables Geschäft. Entscheidend ist, ob
+              Nachfrage, Vertrieb, Workflow, Volumen und Produktionsumgebung
+              zusammenpassen.
+            </p>
+          </div>
+          <p className="border-l-2 border-beyond pl-6 text-xl leading-relaxed text-white/90 lg:text-2xl">
+            Bevor Sie über eine konkrete Maschine sprechen, sollten vier Fragen
+            beantwortet sein: Was wollen Sie damit verkaufen? An wen? Wie häufig?
+            Und was verändert sich in Ihrer heutigen Produktion?
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {stats.map((stat, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
+        <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {checks.map((item, index) => (
+            <motion.article
+              key={item.number}
+              initial={{ opacity: 0, y: 18 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: i * 0.15 }}
-              className="bg-dark-surface rounded-2xl p-7 border border-white/10"
+              transition={{ delay: index * 0.08 }}
+              className="rounded-2xl border border-white/10 bg-dark-surface p-6"
             >
-              <div className="text-5xl font-extrabold text-beyond tracking-tighter text-glow-beyond">
-                <CountUp end={stat.end} suffix={stat.suffix} />
+              <div className="text-sm font-extrabold tracking-widest text-beyond">
+                {item.number}
               </div>
-              <div className="text-sm text-white/85 mt-3 font-medium leading-snug">{stat.label}</div>
-              <div className="text-xs text-muted italic mt-2">{stat.source}</div>
-            </motion.div>
+              <h3 className="mt-5 text-xl font-bold text-white">{item.title}</h3>
+              <p className="mt-3 text-sm leading-relaxed text-white/60">
+                {item.text}
+              </p>
+            </motion.article>
           ))}
         </div>
       </div>

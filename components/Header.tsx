@@ -1,37 +1,56 @@
 "use client";
-import Image from "next/image";
+
+const navigation = [
+  ["Chancen", "chancen"],
+  ["PX300 / PX500", "produkt"],
+  ["Ablauf", "ablauf"],
+  ["Über mich", "ueber-mich"],
+  ["FAQ", "faq"],
+] as const;
 
 export default function Header() {
-  const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-primary-darker/95 backdrop-blur-md border-b border-white/10">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex justify-between items-center">
-        <div className="flex items-center">
-          <Image
-            src="/logos/team-jansen-logo-white.png"
-            alt="Team Jansen – Xerox Platin Partner, Ideen für digitalen Erfolg"
-            width={480}
-            height={165}
-            className="h-10 lg:h-11 w-auto"
-            priority
-          />
-        </div>
-        <div className="flex items-center gap-4">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-primary-darker/95 backdrop-blur-md">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-5 px-4 py-3 sm:px-6 lg:px-8">
+        <a href="#start" className="flex min-w-0 items-center gap-3 text-white">
+          <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-primary to-beyond text-xl font-extrabold shadow-glow-accent">
+            P
+          </span>
+          <span className="min-w-0 leading-tight">
+            <span className="block truncate text-sm font-extrabold tracking-wide sm:text-base">
+              PROFICIO FACHCHECK
+            </span>
+            <span className="hidden text-[11px] text-white/50 sm:block">
+              Jens Burghold / KI-Strategien
+            </span>
+          </span>
+        </a>
+
+        <nav aria-label="Hauptnavigation" className="hidden items-center gap-6 xl:flex">
+          {navigation.map(([label, id]) => (
+            <a
+              key={id}
+              href={`#${id}`}
+              className="text-sm font-medium text-white/70 transition-colors hover:text-white"
+            >
+              {label}
+            </a>
+          ))}
+        </nav>
+
+        <div className="flex shrink-0 items-center gap-3">
           <a
-            href="tel:+49224292120"
-            className="hidden sm:flex text-white text-sm font-semibold hover:text-beyond transition-colors"
+            href="tel:+493614229616"
+            className="hidden text-sm font-semibold text-white/75 transition-colors hover:text-white lg:block"
           >
-            02242 9212-0
+            0361 4229616
           </a>
-          <button
-            onClick={() => scrollTo("kontakt")}
-            className="bg-beyond text-white rounded-lg px-5 py-2.5 text-sm font-semibold hover:brightness-110 hover:scale-105 transition-all shadow-glow-accent"
+          <a
+            href="#kontakt"
+            className="rounded-lg bg-beyond px-4 py-2.5 text-center text-xs font-bold text-white shadow-glow-accent transition-all hover:-translate-y-0.5 hover:brightness-110 sm:px-5 sm:text-sm"
           >
-            Termin vereinbaren
-          </button>
+            Potenzial prüfen
+          </a>
         </div>
       </div>
     </header>

@@ -1,74 +1,106 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import CookieConsent from "@/components/CookieConsent";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"], display: "swap" });
+const siteUrl = "https://www.proficio-digitaldruck.de";
 
 export const metadata: Metadata = {
-  title: "Beyond CMYK Inline-Veredelung | Xerox Proficio PX300 & PX500 | Team Jansen",
-  description: "Bis zu 89% Aufpreis pro Auftrag durch Inline-Veredelung. Xerox Proficio PX300 & PX500 mit 5. Farbstation. Jetzt Demo bei Team Jansen buchen.",
-  metadataBase: new URL("https://proficio-digitaldruck.de"),
+  title: {
+    default: "Xerox Proficio PX300 & PX500 Fachcheck | Jens Burghold",
+    template: "%s | Proficio Fachcheck",
+  },
+  description:
+    "Passt die Xerox Proficio zu Ihrem Betrieb? PX300 und PX500 mit 25 Jahren Xerox-Erfahrung technisch, wirtschaftlich und marktbezogen einordnen.",
+  metadataBase: new URL(siteUrl),
+  alternates: { canonical: "/" },
   openGraph: {
-    title: "Beyond CMYK Inline-Veredelung | Xerox Proficio PX300 & PX500",
-    description: "Bis zu 89% Aufpreis pro Auftrag. Inline-Veredelung im Produktionsdruck. Jetzt Demonstrationstermin bei Team Jansen.",
+    title: "Proficio Fachcheck – passt PX300 oder PX500 zu Ihrem Betrieb?",
+    description:
+      "25 Jahre Xerox-Digitaldruck, verbunden mit KI-gestützter Geschäftsentwicklung.",
     type: "website",
-    images: [{ url: "/og-image.jpg", width: 1200, height: 630 }],
+    locale: "de_DE",
+    url: siteUrl,
+    siteName: "Proficio Fachcheck",
   },
   twitter: { card: "summary_large_image" },
   robots: { index: true, follow: true },
   icons: {
-    icon: [
-      { url: "/favicon.ico" },
-      { url: "/favicon.svg", type: "image/svg+xml" },
-      { url: "/favicons/favicon-32x32.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicons/favicon-16x16.png", sizes: "16x16", type: "image/png" },
-    ],
-    apple: "/favicons/apple-touch-icon.png",
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
   },
+  manifest: "/site.webmanifest",
+};
+
+const structuredData = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": `${siteUrl}/#jens-burghold`,
+      name: "Jens Burghold",
+      jobTitle: "Experte für Xerox-Digitaldruck und KI-gestützte Geschäftsentwicklung",
+      telephone: "+49 361 4229616",
+      email: "jens@proficio-digitaldruck.de",
+      worksFor: { "@id": `${siteUrl}/#organisation` },
+    },
+    {
+      "@type": "Organization",
+      "@id": `${siteUrl}/#organisation`,
+      name: "Jens Burghold / KI-Strategien",
+      url: siteUrl,
+      founder: { "@id": `${siteUrl}/#jens-burghold` },
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Gustav-Tauschek-Straße 2",
+        postalCode: "99099",
+        addressLocality: "Erfurt",
+        addressCountry: "DE",
+      },
+      contactPoint: {
+        "@type": "ContactPoint",
+        contactType: "Beratung",
+        telephone: "+49 361 4229616",
+        email: "jens@proficio-digitaldruck.de",
+        availableLanguage: "de",
+      },
+    },
+    {
+      "@type": "Service",
+      "@id": `${siteUrl}/#fachcheck`,
+      name: "Proficio-Potenzialcheck",
+      description:
+        "Kostenlose fachliche Erstqualifizierung für Druckereien, die Xerox Proficio PX300 oder PX500 prüfen.",
+      provider: { "@id": `${siteUrl}/#organisation` },
+      areaServed: "DE",
+      serviceType: "Fachliche Erstqualifizierung und Partnervermittlung",
+    },
+    {
+      "@type": "Product",
+      name: "Xerox Proficio PX300",
+      brand: { "@type": "Brand", name: "Xerox" },
+      manufacturer: { "@type": "Organization", name: "Xerox" },
+      description:
+        "Produktionsdrucksystem mit Ultra-HD-Bildqualität, bis zu 85 Seiten pro Minute und optionaler fünfter Farbstation.",
+    },
+    {
+      "@type": "Product",
+      name: "Xerox Proficio PX500",
+      brand: { "@type": "Brand", name: "Xerox" },
+      manufacturer: { "@type": "Organization", name: "Xerox" },
+      description:
+        "Produktionsdrucksystem mit Ultra-HD-Bildqualität, bis zu 100 Seiten pro Minute und optionaler fünfter Farbstation.",
+    },
+  ],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="de" className={inter.className}>
+    <html lang="de">
       <head>
-        {/* Organization Schema */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "Organization",
-              name: "Team Jansen",
-              url: "https://teamjansen.de",
-              description: "Xerox Platin Partner – Deutschlands größter Xerox Vertragspartner",
-              telephone: "+49224292120",
-            }),
-          }}
-        />
-        {/* LocalBusiness Schema */}
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              "@context": "https://schema.org",
-              "@type": "LocalBusiness",
-              name: "Team Jansen – Xerox Platin Partner",
-              telephone: "+49224292120",
-              url: "https://teamjansen.de",
-              address: [
-                { "@type": "PostalAddress", addressLocality: "Hennef", addressRegion: "Nordrhein-Westfalen", addressCountry: "DE" },
-                { "@type": "PostalAddress", addressLocality: "Kassel", addressRegion: "Hessen", addressCountry: "DE" },
-                { "@type": "PostalAddress", addressLocality: "Erfurt", addressRegion: "Thüringen", addressCountry: "DE" },
-              ],
-            }),
-          }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
         />
       </head>
-      <body className="antialiased">
-        {children}
-        <CookieConsent />
-      </body>
+      <body className="font-sans antialiased">{children}</body>
     </html>
   );
 }

@@ -1,85 +1,93 @@
 "use client";
+
 import Image from "next/image";
-import { motion } from "framer-motion";
+import { motion } from "motion/react";
 
 export default function Hero() {
-  const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  };
-
   return (
-    <section className="relative min-h-screen flex items-center justify-center pt-16">
+    <section
+      id="start"
+      className="relative flex min-h-[92vh] items-center overflow-hidden bg-primary-darker pt-20"
+    >
       <Image
         src="/images/01-hero-druckmuster.png"
-        alt="Locker überlappende Druckbögen mit lebendigen Beyond-CMYK-Farben in Pink, Violett und Berry auf dunklem Schiefer"
+        alt="Beyond-CMYK-Druckmuster in Pink-, Violett- und dunklen Farbtönen"
         fill
         priority
-        quality={85}
+        quality={88}
         sizes="100vw"
         className="object-cover"
       />
-      {/* Darker overlay per Mia's spec */}
-      <div className="absolute inset-0 bg-gradient-to-b from-dark/75 via-dark/65 to-dark/85" />
+      <div className="absolute inset-0 bg-hero-overlay" />
+      <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-primary-darker to-transparent" />
 
-      <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-20 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="inline-block bg-white/15 backdrop-blur-sm border border-white/20 rounded-full px-5 py-2.5 mb-8"
-        >
-          <span className="text-white text-sm font-medium">
-            NEU: Xerox Proficio PX300 & PX500 – ab März 2026 live erleben
-          </span>
-        </motion.div>
-
-        {/* SEO H1 (sr-only) with keywords */}
-        <h1 className="sr-only">
-          Beyond CMYK Inline-Veredelung im Produktionsdruck – Xerox Proficio PX300 & PX500 bei Team Jansen
-        </h1>
-
-        {/* Visual headline */}
-        <motion.p
-          role="heading"
-          aria-level={2}
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="text-4xl sm:text-5xl lg:text-7xl font-extrabold text-white leading-tight tracking-tight mb-6"
-        >
-          Ihre Kunden wollen mehr als CMYK.{" "}
-          <span className="text-beyond">Jetzt können Sie liefern.</span>
-        </motion.p>
-
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.4 }}
-          className="text-lg lg:text-xl text-white/80 max-w-2xl mx-auto mb-10 leading-relaxed"
-        >
-          Xerox Proficio PX300 & PX500 – Inline-Veredelung mit der fünften Farbstation.
-          Fluoreszenz, Spot-Lack und Matt-Effekte in einem Durchgang. Exklusiv bei Team Jansen.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.6 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center"
-        >
-          <button
-            onClick={() => scrollTo("kontakt")}
-            className="bg-beyond text-white rounded-lg px-8 py-4 text-lg font-bold hover:brightness-110 hover:scale-105 transition-all shadow-glow"
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 py-24 sm:px-6 lg:px-8 lg:py-32">
+        <div className="max-w-4xl">
+          <motion.div
+            initial={{ opacity: 0, y: 18 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.55 }}
+            className="mb-7 inline-flex items-center gap-2 rounded-full border border-beyond/40 bg-beyond/20 px-4 py-2"
           >
-            Kostenlose Demo vereinbaren
-          </button>
-          <button
-            onClick={() => scrollTo("loesung")}
-            className="bg-white/10 text-white border border-white/20 rounded-lg px-8 py-4 text-lg font-semibold hover:bg-white/15 transition-all"
+            <span className="h-2 w-2 rounded-full bg-beyond shadow-glow-accent" />
+            <span className="text-sm font-semibold text-white/90">
+              Xerox Proficio PX300 & PX500 fachlich einordnen
+            </span>
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.12 }}
+            className="max-w-4xl text-4xl font-extrabold leading-[1.06] tracking-tight text-white sm:text-5xl lg:text-7xl"
           >
-            Mehr erfahren
-          </button>
-        </motion.div>
+            Mehr Marge als CMYK.{" "}
+            <span className="text-beyond">Aber passt die Proficio</span> zu Ihrem
+            Betrieb?
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.24 }}
+            className="mt-7 max-w-3xl text-lg leading-relaxed text-white/75 lg:text-xl"
+          >
+            Ich habe 25 Jahre digitale Xerox-Drucksysteme verkauft. Heute helfe
+            ich Druckereien, PX300 und PX500 technisch, wirtschaftlich und
+            marktbezogen einzuordnen – bevor ein Verkaufsgespräch beginnt.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7, delay: 0.36 }}
+            className="mt-9 flex flex-col gap-4 sm:flex-row"
+          >
+            <a
+              href="#kontakt"
+              className="rounded-lg bg-beyond px-7 py-4 text-center text-base font-bold text-white shadow-glow transition-all hover:-translate-y-0.5 hover:brightness-110"
+            >
+              Proficio-Potenzial prüfen
+            </a>
+            <a
+              href="#produkt"
+              className="rounded-lg border border-white/25 bg-white/10 px-7 py-4 text-center text-base font-semibold text-white transition-colors hover:bg-white/20"
+            >
+              PX300 und PX500 vergleichen
+            </a>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 0.55 }}
+            className="mt-9 flex flex-wrap gap-x-6 gap-y-3 text-sm text-white/70"
+          >
+            <span>✓ 25 Jahre Xerox-Erfahrung</span>
+            <span>✓ Persönliche Einordnung</span>
+            <span>✓ Transparente Partnervermittlung</span>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

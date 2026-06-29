@@ -6,12 +6,26 @@ html {
   scroll-behavior: smooth;
 }
 
+body {
+  background: #ffffff;
+  color: #172033;
+}
+
+section {
+  scroll-margin-top: 84px;
+}
+
+:focus-visible {
+  outline: 3px solid rgba(216, 27, 112, 0.55);
+  outline-offset: 3px;
+}
+
 ::selection {
-  background: rgba(255, 45, 138, 0.2);
+  background: rgba(216, 27, 112, 0.2);
 }
 
 @layer utilities {
   .text-glow-beyond {
-    text-shadow: 0 0 40px rgba(255, 45, 138, 0.3);
+    text-shadow: 0 0 40px rgba(216, 27, 112, 0.3);
   }
 }

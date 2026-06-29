@@ -1,8 +1,6 @@
 // tailwind.config.ts
-// Proficio Landingpage – Design-Token von Mia
-// Stand: 10.03.2026 | V2.0 – MIT ECHTEN TEAM-JANSEN-FARBEN
-// 
-// Farben extrahiert aus: xtj_Logo_cmyk.ai + Xerox Platinum Badge
+// Proficio Fachcheck – eigenständiges Designsystem
+// Stand: 29.06.2026
 
 import type { Config } from "tailwindcss";
 
@@ -14,35 +12,22 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        // === TEAM JANSEN BRAND (aus Logo extrahiert) ===
         primary: {
-          DEFAULT: "#2F65AF",   // Team Jansen Blau (Hauptfarbe)
-          light: "#4A7DC4",     // Hover-States, hellere Variante
-          dark: "#1E4A85",      // Dunkle Sektionen, Footer
-          darker: "#122F57",    // Problem-Sektion, Conversion Zone
+          DEFAULT: "#6D4AFF",
+          light: "#8B72FF",
+          dark: "#34248A",
+          darker: "#0B1020",
         },
-
-        // === TEAM JANSEN SEKUNDÄRFARBEN (aus Logo-Bildmarke) ===
-        "tj-cyan": "#10BBEF",   // Logo-Quadrat: Hellblau
-        "tj-green": "#94C11F",  // Logo-Quadrat: Limettengrün
-        "tj-red": "#E30613",    // Logo-Quadrat: Rot
-
-        // === XEROX ===
-        "xerox-red": "#DA2013", // Xerox Platinum Badge Rot
-
-        // === BEYOND CMYK AKZENT ===
-        beyond: "#FF2D8A",      // Fluorescent Pink – Impact-Zahlen, CTA, Glow
-
-        // === NEUTRAL ===
+        beyond: "#D81B70",
         dark: {
-          DEFAULT: "#0F172A",   // Dunkle Hintergründe
-          surface: "#1E293B",   // Cards auf dunklem Grund
+          DEFAULT: "#0F172A",
+          surface: "#182235",
         },
-        "light-bg": "#F8FAFC",  // FAQ, Trust-Sektion
-        foreground: "#1E293B",  // Primärer Text auf hell
-        muted: "#64748B",       // Sekundärer Text
-        border: "#E2E8F0",      // Trennlinien, Borders
-        success: "#10B981",     // Check-Icons Produktvergleich
+        "light-bg": "#F7F8FC",
+        foreground: "#172033",
+        muted: "#5F6B7C",
+        border: "#DDE2EA",
+        success: "#0B8F67",
       },
 
       fontFamily: {
@@ -55,14 +40,14 @@ const config: Config = {
       },
 
       boxShadow: {
-        "glow": "0 0 40px rgba(255, 45, 138, 0.3)",
-        "glow-lg": "0 0 60px rgba(255, 45, 138, 0.4)",
-        "glow-accent": "0 4px 14px rgba(255, 45, 138, 0.25)",
+        "glow": "0 0 40px rgba(216, 27, 112, 0.3)",
+        "glow-lg": "0 0 60px rgba(216, 27, 112, 0.4)",
+        "glow-accent": "0 4px 18px rgba(216, 27, 112, 0.28)",
         "top": "0 -4px 6px -1px rgba(0, 0, 0, 0.1)",
       },
 
       backgroundImage: {
-        "hero-overlay": "linear-gradient(to bottom, rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.5), rgba(15, 23, 42, 0.8))",
+        "hero-overlay": "linear-gradient(90deg, rgba(7, 12, 26, 0.97) 0%, rgba(7, 12, 26, 0.88) 45%, rgba(7, 12, 26, 0.55) 75%, rgba(7, 12, 26, 0.78) 100%)",
       },
 
       animation: {

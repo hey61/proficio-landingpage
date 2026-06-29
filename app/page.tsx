@@ -3,25 +3,29 @@ import Hero from "@/components/Hero";
 import ProblemSection from "@/components/ProblemSection";
 import SolutionSection from "@/components/SolutionSection";
 import ProductSection from "@/components/ProductSection";
+import HowItWorksSection from "@/components/HowItWorksSection";
 import TrustSection from "@/components/TrustSection";
+import AiBusinessSection from "@/components/AiBusinessSection";
 import FAQSection from "@/components/FAQSection";
-import SEOTextBlock from "@/components/SEOTextBlock";
 import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 
 export default function Home() {
   return (
-    <main>
+    <>
       <Header />
-      <Hero />
-      <ProblemSection />
-      <SolutionSection />
-      <ProductSection />
-      <TrustSection />
-      <FAQSection />
-      <SEOTextBlock />
-      <CTASection />
+      <main>
+        <Hero />
+        <ProblemSection />
+        <SolutionSection />
+        <ProductSection />
+        <HowItWorksSection />
+        <TrustSection />
+        <AiBusinessSection />
+        <FAQSection />
+        <CTASection />
+      </main>
       <Footer />
-    </main>
+    </>
   );
 }
