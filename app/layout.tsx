@@ -5,17 +5,18 @@ const siteUrl = "https://www.proficio-digitaldruck.de";
 
 export const metadata: Metadata = {
   title: {
-    default: "Zukunftscheck für Druckdienstleister | Jens Burghold",
+    default: "Neue Geschäftsfelder für Druckereien | Zukunftscheck",
     template: "%s | Zukunftscheck Digitaldruck",
   },
   description:
-    "Neue Geschäftschancen für Druckereien entwickeln: Anwendungen, Zielgruppen und Wertschöpfung prüfen – und erst danach Technologien wie Xerox Proficio einordnen.",
+    "Verpackungsdruck, Spezialdruck und digitale Druckveredelung als neue Geschäftsfelder für Druckdienstleister und Hausdruckereien prüfen.",
   metadataBase: new URL(siteUrl),
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Zukunftscheck für Druckdienstleister",
+    title:
+      "Neue Geschäftsfelder für Druckereien: Verpackungs- und Spezialdruck",
     description:
-      "Welche neuen Geschäftschancen stecken in Ihrer Druckerei? 25 Jahre Xerox-Digitaldruck verbunden mit KI-gestützter Geschäftsentwicklung.",
+      "Konkrete Chancen für Druckdienstleister und Hausdruckereien entwickeln – von Verpackungsdruck in Kleinauflagen bis digitaler Druckveredelung.",
     type: "website",
     locale: "de_DE",
     url: siteUrl,
@@ -67,7 +68,7 @@ const structuredData = {
       "@id": `${siteUrl}/#zukunftscheck`,
       name: "Zukunftscheck für Druckdienstleister",
       description:
-        "Kostenlose erste Einordnung von Geschäftschancen, Anwendungen, Zielgruppen und Produktionsmöglichkeiten für Druckereien und Druckdienstleister.",
+        "Kostenlose erste Einordnung von Verpackungsdruck, Spezialdruck, Druckveredelung und weiteren Geschäftschancen für Druckereien, Druckdienstleister und Hausdruckereien.",
       provider: { "@id": `${siteUrl}/#organisation` },
       areaServed: "DE",
       serviceType:

@@ -11,6 +11,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
+      url: `${siteUrl}/verpackungsdruck-kleinauflagen`,
+      lastModified: new Date("2026-06-29"),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${siteUrl}/spezialdruck-druckveredelung`,
+      lastModified: new Date("2026-06-29"),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
+      url: `${siteUrl}/hausdruckerei-weiterentwickeln`,
+      lastModified: new Date("2026-06-29"),
+      changeFrequency: "monthly",
+      priority: 0.9,
+    },
+    {
       url: `${siteUrl}/impressum`,
       lastModified: new Date("2026-06-29"),
       changeFrequency: "yearly",

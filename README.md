@@ -17,6 +17,8 @@ Jens Burghold / KI-Strategien
 - Impressum und Datenschutz als Arbeitsfassung
 - SMTP-Versand über all-inkl nach dem KNAKKE-Muster
 - Sitemap, Robots-Datei und dynamisches Open-Graph-Bild
+- Themenseiten für Verpackungsdruck, Spezialdruck und Hausdruckereien
+- wiederholbares Sichtbarkeits-Audit für die öffentlichen Seiten
 
 ## Technische Basis
 
@@ -38,6 +40,33 @@ pnpm dev
 ```
 
 Danach `http://localhost:3000` öffnen.
+
+## Sichtbarkeit regelmäßig prüfen
+
+Nach der Veröffentlichung prüft der folgende Lauf alle wichtigen Seiten auf
+Erreichbarkeit, Seitentitel, Beschreibung, H1, Canonical, strukturierte Daten,
+interne Links und die vereinbarten Themenbegriffe:
+
+```bash
+npm run visibility:audit
+```
+
+Eine Vorschau lässt sich abweichend prüfen:
+
+```bash
+VISIBILITY_SITE_URL=https://ihre-vorschau.vercel.app npm run visibility:audit
+```
+
+Das technische Audit ergänzt die Google Search Console. Nur dort werden die
+tatsächlichen Suchanfragen, Impressionen, Klicks und Veränderungen der
+Sichtbarkeit sichtbar.
+
+Nach einem Build kann dieselbe Prüfung ohne öffentliche Website direkt gegen
+die erzeugten Seiten laufen:
+
+```bash
+VISIBILITY_BUILD_DIR=.next/server/app npm run visibility:audit
+```
 
 ## Umgebungsvariablen
 

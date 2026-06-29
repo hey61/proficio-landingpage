@@ -2,11 +2,10 @@
 
 const navigation = [
   ["Chancen", "chancen"],
+  ["Themen", "themen"],
   ["Wirkung", "wirkung"],
   ["Über mich", "ueber-mich"],
   ["Zukunftscheck", "zukunftscheck"],
-  ["Proficio", "proficio"],
-  ["FAQ", "faq"],
 ] as const;
 
 export default function Header() {

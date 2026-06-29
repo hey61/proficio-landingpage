@@ -1,6 +1,7 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import ProblemSection from "@/components/ProblemSection";
+import OpportunitySection from "@/components/OpportunitySection";
 import SolutionSection from "@/components/SolutionSection";
 import ProductSection from "@/components/ProductSection";
 import HowItWorksSection from "@/components/HowItWorksSection";
@@ -17,6 +18,7 @@ export default function Home() {
       <main>
         <Hero />
         <ProblemSection />
+        <OpportunitySection />
         <SolutionSection />
         <TrustSection />
         <AiBusinessSection />

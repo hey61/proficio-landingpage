@@ -31,7 +31,7 @@ export default function Hero() {
           >
             <span className="h-2 w-2 rounded-full bg-beyond shadow-glow-accent" />
             <span className="text-sm font-semibold text-white/90">
-              Zukunftscheck für Druckdienstleister
+              Für Druckdienstleister und Hausdruckereien
             </span>
           </motion.div>
 
@@ -41,8 +41,10 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.12 }}
             className="max-w-4xl text-4xl font-extrabold leading-[1.06] tracking-tight text-white sm:text-5xl lg:text-7xl"
           >
-            Welche neuen Geschäftschancen{" "}
-            <span className="text-beyond">stecken in Ihrer Druckerei?</span>
+            Neue Geschäftschancen mit{" "}
+            <span className="text-beyond">
+              Verpackungs- und Spezialdruck
+            </span>
           </motion.h1>
 
           <motion.p
@@ -51,10 +53,10 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.24 }}
             className="mt-7 max-w-3xl text-lg leading-relaxed text-white/75 lg:text-xl"
           >
-            Ich verbinde 25 Jahre Erfahrung im Xerox-Digitaldruck mit
-            KI-gestützter Geschäftsentwicklung. Gemeinsam prüfen wir, welche
-            Anwendungen, Zielgruppen und Produktionsmöglichkeiten Ihr Geschäft
-            voranbringen – und ob eine Technologie wie Proficio dazu passt.
+            Wenn Standarddruck kaum noch trägt, braucht es Angebote, die nicht
+            nur über den Preis verglichen werden. Gemeinsam entwickeln wir
+            konkrete Anwendungen, Zielgruppen und Vertriebswege – und prüfen
+            erst danach, welche Produktionstechnik dazu passt.
           </motion.p>
 
           <motion.div
@@ -84,6 +86,7 @@ export default function Hero() {
             className="mt-9 flex flex-wrap gap-x-6 gap-y-3 text-sm text-white/70"
           >
             <span>✓ 25 Jahre Xerox-Erfahrung</span>
+            <span>✓ Verpackungsdruck & Spezialdruck</span>
             <span>✓ Anwendungen vor Maschinen</span>
             <span>✓ Persönlicher Zukunftscheck</span>
           </motion.div>
