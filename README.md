@@ -1,4 +1,4 @@
-# Proficio Fachcheck
+# Zukunftscheck für Druckdienstleister
 
 Vorschau- und Übergabefassung für den Relaunch von `proficio-digitaldruck.de`.
 
@@ -9,7 +9,7 @@ Jens Burghold / KI-Strategien
 ## Enthalten
 
 - neuer persönlicher Markenauftritt
-- Proficio-Potenzialcheck mit zweistufigem Formular
+- Zukunftscheck mit zweistufigem Formular
 - Profilbild und persönlicher Vertrauensbereich
 - verifizierter PX300-/PX500-Vergleich
 - transparente Partnervermittlung
@@ -49,7 +49,7 @@ SMTP_PORT=465
 SMTP_USER=jens@proficio-digitaldruck.de
 SMTP_PASS=[Postfach-Passwort]
 CONTACT_TO=jens@proficio-digitaldruck.de
-CONTACT_FROM=Proficio Fachcheck <jens@proficio-digitaldruck.de>
+CONTACT_FROM=Zukunftscheck Digitaldruck <jens@proficio-digitaldruck.de>
 ```
 
 Das Passwort niemals in GitHub, den Vault oder eine Chat-Nachricht schreiben.

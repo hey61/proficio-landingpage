@@ -31,7 +31,7 @@ export default function Hero() {
           >
             <span className="h-2 w-2 rounded-full bg-beyond shadow-glow-accent" />
             <span className="text-sm font-semibold text-white/90">
-              Xerox Proficio PX300 & PX500 fachlich einordnen
+              Zukunftscheck für Druckdienstleister
             </span>
           </motion.div>
 
@@ -41,9 +41,8 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.12 }}
             className="max-w-4xl text-4xl font-extrabold leading-[1.06] tracking-tight text-white sm:text-5xl lg:text-7xl"
           >
-            Mehr Marge als CMYK.{" "}
-            <span className="text-beyond">Aber passt die Proficio</span> zu Ihrem
-            Betrieb?
+            Welche neuen Geschäftschancen{" "}
+            <span className="text-beyond">stecken in Ihrer Druckerei?</span>
           </motion.h1>
 
           <motion.p
@@ -52,9 +51,10 @@ export default function Hero() {
             transition={{ duration: 0.7, delay: 0.24 }}
             className="mt-7 max-w-3xl text-lg leading-relaxed text-white/75 lg:text-xl"
           >
-            Ich habe 25 Jahre digitale Xerox-Drucksysteme verkauft. Heute helfe
-            ich Druckereien, PX300 und PX500 technisch, wirtschaftlich und
-            marktbezogen einzuordnen – bevor ein Verkaufsgespräch beginnt.
+            Ich verbinde 25 Jahre Erfahrung im Xerox-Digitaldruck mit
+            KI-gestützter Geschäftsentwicklung. Gemeinsam prüfen wir, welche
+            Anwendungen, Zielgruppen und Produktionsmöglichkeiten Ihr Geschäft
+            voranbringen – und ob eine Technologie wie Proficio dazu passt.
           </motion.p>
 
           <motion.div
@@ -67,13 +67,13 @@ export default function Hero() {
               href="#kontakt"
               className="rounded-lg bg-beyond px-7 py-4 text-center text-base font-bold text-white shadow-glow transition-all hover:-translate-y-0.5 hover:brightness-110"
             >
-              Proficio-Potenzial prüfen
+              Zukunftspotenzial prüfen
             </a>
             <a
-              href="#produkt"
+              href="#wirkung"
               className="rounded-lg border border-white/25 bg-white/10 px-7 py-4 text-center text-base font-semibold text-white transition-colors hover:bg-white/20"
             >
-              PX300 und PX500 vergleichen
+              Geschäftschancen ansehen
             </a>
           </motion.div>
 
@@ -84,8 +84,8 @@ export default function Hero() {
             className="mt-9 flex flex-wrap gap-x-6 gap-y-3 text-sm text-white/70"
           >
             <span>✓ 25 Jahre Xerox-Erfahrung</span>
-            <span>✓ Persönliche Einordnung</span>
-            <span>✓ Transparente Partnervermittlung</span>
+            <span>✓ Anwendungen vor Maschinen</span>
+            <span>✓ Persönlicher Zukunftscheck</span>
           </motion.div>
         </div>
       </div>

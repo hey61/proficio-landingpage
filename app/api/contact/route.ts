@@ -98,7 +98,7 @@ export async function POST(request: Request) {
     !CONTACT_TO ||
     !CONTACT_FROM
   ) {
-    console.error("Proficio-Fachcheck: SMTP-Konfiguration unvollständig.");
+    console.error("Zukunftscheck: SMTP-Konfiguration unvollständig.");
     return NextResponse.json(
       {
         error:
@@ -110,7 +110,7 @@ export async function POST(request: Request) {
 
   const port = Number(SMTP_PORT);
   if (!Number.isInteger(port)) {
-    console.error("Proficio-Fachcheck: SMTP_PORT ist ungültig.");
+    console.error("Zukunftscheck: SMTP_PORT ist ungültig.");
     return NextResponse.json(
       { error: "Der Versand ist derzeit nicht möglich." },
       { status: 500 },
@@ -135,11 +135,11 @@ export async function POST(request: Request) {
     "",
     `Heutiges Produktionssystem: ${currentSystem || "nicht angegeben"}`,
     `Monatliches Farbvolumen: ${volume}`,
-    `Hauptinteresse: ${interest}`,
+    `Wichtigstes Zukunftsthema: ${interest}`,
     `Gewünschter nächster Schritt: ${nextStep}`,
-    `Investitionshorizont: ${horizon}`,
+    `Zeithorizont: ${horizon}`,
     "",
-    "Künftige Anwendungen / Ziel:",
+    "Geschäftschance / Ziel:",
     productionGoal || "nicht angegeben",
     "",
     "Datenschutzhinweis wurde zur Kenntnis genommen.",
@@ -151,11 +151,11 @@ export async function POST(request: Request) {
       from: CONTACT_FROM,
       to: CONTACT_TO,
       replyTo: { name, address: email },
-      subject: `Neue Proficio-Fachcheck-Anfrage – ${company.replace(/[\r\n]/g, " ")}`,
+      subject: `Neue Zukunftscheck-Anfrage – ${company.replace(/[\r\n]/g, " ")}`,
       text,
     });
   } catch (error) {
-    console.error("Proficio-Fachcheck: Mailversand fehlgeschlagen.", error);
+    console.error("Zukunftscheck: Mailversand fehlgeschlagen.", error);
     return NextResponse.json(
       {
         error:

@@ -14,7 +14,7 @@ export default function DankePage() {
           ✓
         </div>
         <h1 className="mt-7 text-3xl font-bold lg:text-4xl">
-          Ihre Proficio-Anfrage ist angekommen.
+          Ihre Zukunftscheck-Anfrage ist angekommen.
         </h1>
         <p className="mt-5 text-lg leading-relaxed text-white/70">
           Ich prüfe Ihre Angaben persönlich und melde mich bei Ihnen. Ihre Daten
@@ -23,11 +23,14 @@ export default function DankePage() {
         <div className="mt-8 rounded-2xl border border-white/10 bg-white/5 p-6 text-left">
           <h2 className="font-bold">Was passiert jetzt?</h2>
           <ol className="mt-4 space-y-3 text-sm leading-relaxed text-white/60">
-            <li>1. Ich ordne Ihre Ausgangslage und Ihr Einsatzprofil ein.</li>
+            <li>
+              1. Ich ordne Ihre Ausgangslage, Ihr Ziel und mögliche
+              Geschäftschancen ein.
+            </li>
             <li>2. Offene Fragen klären wir direkt miteinander.</li>
             <li>
-              3. Eine Partnervermittlung erfolgt nur, wenn sie sinnvoll ist und
-              Sie zugestimmt haben.
+              3. Technik oder Partner kommen erst ins Spiel, wenn sie zur
+              Geschäftsidee passen und Sie zugestimmt haben.
             </li>
           </ol>
         </div>

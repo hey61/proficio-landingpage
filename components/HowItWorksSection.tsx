@@ -5,35 +5,36 @@ import { motion } from "motion/react";
 const steps = [
   {
     number: "1",
-    title: "Ausgangslage beschreiben",
-    text: "Sie nennen heutiges System, Volumen, Anwendungen und Ihren gewünschten nächsten Schritt.",
+    title: "Geschäftsziel beschreiben",
+    text: "Sie nennen heutige Angebote, Kunden, Produktionsmöglichkeiten und den Entwicklungsschritt, den Sie erreichen möchten.",
   },
   {
     number: "2",
-    title: "Persönliche Einordnung",
-    text: "Ich prüfe Ihre Angaben und ordne Chancen, offene Fragen und das mögliche Einsatzprofil ein.",
+    title: "Zukunftschancen einordnen",
+    text: "Ich verbinde Ihre Ausgangslage mit möglichen Anwendungen, Zielgruppen, Nutzenargumenten und wirtschaftlichen Fragen.",
   },
   {
     number: "3",
-    title: "Sinnvoll weitergehen",
-    text: "Bei echtem Potenzial folgt ein Muster, eine Demonstration oder – mit Ihrer Zustimmung – das Gespräch mit einem geeigneten Partner.",
+    title: "Nächsten Schritt festlegen",
+    text: "Das Ergebnis kann eine Marktidee, ein Druckmuster, eine technische Prüfung oder – mit Ihrer Zustimmung – ein Partnergespräch sein.",
   },
 ] as const;
 
 export default function HowItWorksSection() {
   return (
-    <section id="ablauf" className="bg-white py-24 lg:py-32">
+    <section id="zukunftscheck" className="bg-white py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
-          <div className="mb-4 text-sm font-bold uppercase tracking-[0.18em] text-beyond">
-            Proficio-Potenzialcheck
-          </div>
+            <div className="mb-4 text-sm font-bold uppercase tracking-[0.18em] text-beyond">
+            Zukunftscheck für Druckdienstleister
+            </div>
           <h2 className="text-3xl font-bold leading-tight tracking-tight lg:text-5xl">
-            Kein vorschnelles Verkaufsgespräch
+            Erst die Richtung klären, dann investieren
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-muted">
-            Sie schildern Ihre Ausgangslage. Ich ordne den möglichen Einsatz ein
-            und empfehle den nächsten sinnvollen Schritt.
+            Sie schildern, wo Ihr Betrieb heute steht und wo er hin soll. Ich
+            ordne mögliche Geschäftschancen ein und empfehle den nächsten
+            sinnvollen Schritt.
           </p>
         </div>
 
@@ -64,7 +65,7 @@ export default function HowItWorksSection() {
             href="#kontakt"
             className="inline-flex rounded-lg bg-beyond px-7 py-4 text-base font-bold text-white shadow-glow-accent transition-all hover:-translate-y-0.5 hover:brightness-110"
           >
-            Fachcheck starten
+            Zukunftscheck starten
           </a>
         </div>
       </div>

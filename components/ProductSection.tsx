@@ -41,20 +41,20 @@ export default function ProductSection() {
   const model = models[selected];
 
   return (
-    <section id="produkt" className="bg-light-bg py-24 lg:py-32">
+    <section id="proficio" className="bg-light-bg py-24 lg:py-32">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <div className="mb-4 text-sm font-bold uppercase tracking-[0.18em] text-primary">
-            PX300 und PX500
+            Technologie als Werkzeug
           </div>
           <h2 className="text-3xl font-bold leading-tight tracking-tight lg:text-5xl">
-            Zwei Produktionssysteme.{" "}
-            <span className="text-beyond">Unterschiedliche Einsatzprofile.</span>
+            Wenn Proficio{" "}
+            <span className="text-beyond">zur Geschäftsidee passt</span>
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-muted">
-            Die richtige Wahl hängt nicht nur von der Geschwindigkeit ab,
-            sondern von Volumen, Anwendungen, Automatisierungsbedarf und Ihrer
-            geplanten Entwicklung.
+            Erst wenn Angebot, Zielgruppe und wirtschaftlicher Nutzen plausibel
+            sind, wird die Technik konkret. PX300 und PX500 können dann zwei
+            unterschiedliche Wege zur Umsetzung derselben Geschäftsidee sein.
           </p>
         </div>
 
@@ -109,20 +109,20 @@ export default function ProductSection() {
 
           <aside className="flex flex-col justify-center rounded-2xl bg-gradient-to-br from-primary-darker via-dark-surface to-primary-dark p-7 text-white sm:p-9">
             <div className="text-sm font-bold uppercase tracking-[0.16em] text-beyond">
-              Typisches Einsatzprofil
+              Möglicher Beitrag
             </div>
             <p className="mt-5 text-xl font-semibold leading-relaxed">
               {model.profile}
             </p>
             <p className="mt-5 text-sm leading-relaxed text-white/60">
-              Eine belastbare Empfehlung entsteht erst aus Ihrem Volumen,
-              Anwendungsportfolio und Workflow.
+              Eine belastbare Empfehlung entsteht erst aus Geschäftsziel,
+              Volumen, Anwendungsportfolio, Workflow und Wirtschaftlichkeit.
             </p>
             <a
               href="#kontakt"
               className="mt-7 self-start rounded-lg bg-beyond px-6 py-3.5 text-sm font-bold text-white shadow-glow-accent transition-all hover:-translate-y-0.5 hover:brightness-110"
             >
-              Einsatzprofil prüfen
+              Im Zukunftscheck einordnen
             </a>
           </aside>
         </div>

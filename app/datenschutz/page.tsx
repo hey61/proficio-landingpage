@@ -48,7 +48,7 @@ export default function DatenschutzPage() {
 
       <section>
         <h2 className="text-xl font-bold text-foreground">
-          3. Kontaktaufnahme und Proficio-Fachcheck
+          3. Kontaktaufnahme und Zukunftscheck
         </h2>
         <p className="mt-3">
           Wenn Sie das Formular verwenden oder uns per E-Mail beziehungsweise

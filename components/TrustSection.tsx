@@ -36,8 +36,8 @@ export default function TrustSection() {
             Über mich
           </div>
           <h2 className="mt-4 text-3xl font-bold leading-tight tracking-tight text-white lg:text-5xl">
-            Ich kenne den Maschinenverkauf –{" "}
-            <span className="text-beyond">und die Fragen davor</span>
+            Ich kenne die Technik –{" "}
+            <span className="text-beyond">und denke vom Geschäft her</span>
           </h2>
           <div className="mt-7 space-y-5 text-lg leading-relaxed text-white/70">
             <p>
@@ -47,23 +47,23 @@ export default function TrustSection() {
             </p>
             <p>
               Heute verbinde ich diese Branchenerfahrung mit KI-gestützter
-              Marktanalyse und digitaler Kundengewinnung. Mein Ziel ist nicht,
-              Ihnen möglichst schnell eine Maschine anzubieten. Ich möchte
-              zuerst klären, ob die Proficio zu Ihrem Betrieb, Ihren Kunden und
-              Ihren wirtschaftlichen Zielen passt.
+              Marktanalyse und digitaler Kundengewinnung. Mein Ziel ist, mit
+              Ihnen zuerst die Geschäftschance zu klären: welches Angebot,
+              welche Zielgruppe und welcher wirtschaftliche Nutzen. Erst danach
+              stellt sich die Frage, welche Technologie dazu passt.
             </p>
           </div>
 
           <blockquote className="mt-8 border-l-4 border-beyond pl-6 text-xl font-semibold leading-relaxed text-white lg:text-2xl">
-            „Ich verkaufe Ihnen nicht zuerst eine Maschine. Ich prüfe zuerst, ob
-            sie zu Ihrem Geschäft passt.“
+            „Ich beginne nicht mit einer Maschine. Ich beginne mit der Frage,
+            womit Ihre Druckerei morgen besser verdienen kann.“
           </blockquote>
 
           <div className="mt-9 flex flex-wrap gap-3 text-sm">
             {[
               "25 Jahre Xerox-Digitaldruck",
-              "persönliche Erstqualifizierung",
-              "Branche + KI",
+              "persönlicher Zukunftscheck",
+              "Branche + Geschäft + KI",
             ].map((item) => (
               <span
                 key={item}

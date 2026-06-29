@@ -7,7 +7,9 @@ export default function Footer() {
         <div className="grid gap-8 md:grid-cols-[1fr_auto] md:items-end">
           <div>
             <div className="text-base font-bold">Jens Burghold / KI-Strategien</div>
-            <div className="mt-1 text-sm text-white/50">Proficio Fachcheck</div>
+            <div className="mt-1 text-sm text-white/50">
+              Zukunftscheck für Druckdienstleister
+            </div>
             <address className="mt-4 text-sm not-italic leading-relaxed text-white/50">
               Gustav-Tauschek-Straße 2 · 99099 Erfurt
               <br />

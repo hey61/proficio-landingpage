@@ -2,22 +2,27 @@ export const faqs = [
   {
     question: "Wer betreibt diese Website?",
     answer:
-      "Die Website wird von Jens Burghold / KI-Strategien betrieben. Sie ist ein eigenständiges Informations- und Vermittlungsangebot für Druckereien, die sich mit der Xerox Proficio PX300 oder PX500 beschäftigen.",
+      "Die Website wird von Jens Burghold / KI-Strategien betrieben. Sie ist ein eigenständiges Informations- und Vermittlungsangebot für Druckereien und Druckdienstleister, die neue Geschäftschancen und passende Produktionstechnologien prüfen möchten.",
   },
   {
-    question: "Sind Sie Xerox-Händler?",
+    question: "Was beinhaltet der Zukunftscheck?",
     answer:
-      "Nein. Ich bin heute kein Xerox-Vertragshändler. Ich bringe 25 Jahre Erfahrung im Verkauf digitaler Xerox-Drucksysteme ein, qualifiziere den Bedarf vor und vermittle bei konkretem Interesse an einen geeigneten Umsetzungspartner.",
+      "Der Zukunftscheck betrachtet Ihre heutigen Angebote, Kunden, Produktionsmöglichkeiten und Ziele. Daraus werden mögliche Anwendungen, Zielgruppen, Nutzenargumente und wirtschaftliche Fragen abgeleitet. Erst danach wird geprüft, ob eine Technologie wie die Xerox Proficio sinnvoll beitragen kann.",
   },
   {
-    question: "Was beinhaltet der Proficio-Fachcheck?",
+    question: "Muss ich mich bereits für Proficio interessieren?",
     answer:
-      "Der Erstcheck betrachtet Ihr heutiges Produktionssystem, Volumen, Anwendungen, Veredelungsbedarf und Ihren Investitionshorizont. Sie erhalten eine erste Einschätzung, welche Fragen weiter geprüft werden sollten und welcher nächste Schritt sinnvoll ist.",
+      "Nein. Der Zukunftscheck beginnt mit Ihrem Geschäft, nicht mit einer bestimmten Maschine. Proficio wird nur dann konkreter betrachtet, wenn die möglichen Anwendungen, Ihr Produktionsprofil und Ihre Ziele dazu passen.",
   },
   {
     question: "Ist der Erstcheck kostenlos?",
     answer:
-      "Ja. Der erste Proficio-Fachcheck ist kostenlos und unverbindlich. Verbindliche technische Auslegung, Testdrucke, Preise, Finanzierung und Verträge sind Sache des späteren Umsetzungspartners.",
+      "Ja. Der erste Zukunftscheck ist kostenlos und unverbindlich. Eine vertiefte Beratung wird bei Bedarf gesondert vereinbart. Verbindliche technische Auslegung, Testdrucke, Preise, Finanzierung und Verträge sind Sache eines späteren Umsetzungspartners.",
+  },
+  {
+    question: "Sind Sie Xerox-Händler?",
+    answer:
+      "Nein. Ich bin heute kein Xerox-Vertragshändler. Ich bringe 25 Jahre Erfahrung im Verkauf digitaler Xerox-Drucksysteme ein, ordne Geschäftschancen und Anforderungen vor und vermittle bei konkretem Interesse an einen geeigneten Umsetzungspartner.",
   },
   {
     question: "Was passiert mit meinen Daten?",
@@ -27,7 +32,7 @@ export const faqs = [
   {
     question: "Erhalten Sie für eine Vermittlung eine Vergütung?",
     answer:
-      "Wenn aus dem Fachcheck ein konkretes Projekt entsteht, kann ich vom Umsetzungspartner eine Vermittlungsvergütung erhalten. Für Sie entstehen durch die Anfrage und Vermittlung keine zusätzlichen Kosten.",
+      "Wenn aus dem Zukunftscheck ein konkretes Projekt entsteht, kann ich vom Umsetzungspartner eine Vermittlungsvergütung erhalten. Für Sie entstehen durch die Anfrage und Vermittlung keine zusätzlichen Kosten.",
   },
   {
     question: "Bekomme ich bei Ihnen ein Maschinenangebot?",
@@ -42,6 +47,6 @@ export const faqs = [
   {
     question: "Kann KI bei der Vermarktung neuer Druckanwendungen helfen?",
     answer:
-      "Ja. KI kann Recherche, Ideenentwicklung, Zielgruppenauswahl und Content-Erstellung beschleunigen. Sie ersetzt aber weder Branchenkenntnis noch Kundengespräche. Im Fachcheck dient sie als Werkzeug, um technische Möglichkeiten in konkrete Marktchancen zu übersetzen.",
+      "Ja. KI kann Recherche, Ideenentwicklung, Zielgruppenauswahl und Content-Erstellung beschleunigen. Sie ersetzt aber weder Branchenkenntnis noch Kundengespräche. Im Zukunftscheck dient sie als Werkzeug, um Produktionsmöglichkeiten in konkrete Marktchancen zu übersetzen.",
   },
 ] as const;

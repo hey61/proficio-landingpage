@@ -1,8 +1,8 @@
 const fields = [
   "Anwendungs- und Angebotsideen",
   "geeignete Zielbranchen",
-  "Markt- und Wettbewerbsrecherche",
-  "Content und digitale Leadgewinnung",
+  "Nutzenargumente und Positionierung",
+  "Marktrecherche und digitale Leadgewinnung",
 ] as const;
 
 export default function AiBusinessSection() {
@@ -15,13 +15,13 @@ export default function AiBusinessSection() {
               KI-Strategien
             </div>
             <h2 className="mt-4 text-3xl font-bold leading-tight tracking-tight lg:text-5xl">
-              Von der Maschinenchance zur Marktchance
+              Von der Idee zum verkaufbaren Angebot
             </h2>
             <p className="mt-6 max-w-2xl text-lg leading-relaxed text-white/70">
-              Eine neue Produktionsmöglichkeit schafft erst dann Wert, wenn
-              daraus verständliche Angebote und erreichbare Zielgruppen
-              entstehen. KI beschleunigt die Recherche und Ideenentwicklung –
-              Branchenkenntnis entscheidet, was davon tragfähig ist.
+              KI hilft, neue Anwendungen, Zielbranchen und Nutzenargumente
+              schneller zu entwickeln. Branchenkenntnis und Kundennähe
+              entscheiden, welche Ideen wirklich tragfähig sind. Der
+              Zukunftscheck verbindet beides.
             </p>
           </div>
           <div className="mt-10 grid gap-3 sm:grid-cols-2 lg:mt-0 lg:grid-cols-1">

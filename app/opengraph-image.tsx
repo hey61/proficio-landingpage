@@ -1,7 +1,7 @@
 import { ImageResponse } from "next/og";
 
 export const alt =
-  "Proficio Fachcheck – Xerox PX300 und PX500 fachlich einordnen";
+  "Zukunftscheck für Druckdienstleister mit Jens Burghold";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
 
@@ -36,10 +36,12 @@ export default function OpenGraphImage() {
               background: "linear-gradient(135deg, #6D4AFF, #D81B70)",
             }}
           >
-            P
+            Z
           </div>
           <div style={{ display: "flex", flexDirection: "column" }}>
-            <span style={{ fontSize: 24, fontWeight: 800 }}>PROFICIO FACHCHECK</span>
+            <span style={{ fontSize: 24, fontWeight: 800 }}>
+              ZUKUNFTSCHECK FÜR DRUCKDIENSTLEISTER
+            </span>
             <span style={{ fontSize: 18, opacity: 0.72 }}>
               Jens Burghold / KI-Strategien
             </span>
@@ -47,7 +49,7 @@ export default function OpenGraphImage() {
         </div>
         <div style={{ display: "flex", flexDirection: "column", maxWidth: 980 }}>
           <span style={{ fontSize: 64, fontWeight: 800, lineHeight: 1.05 }}>
-            Passt die Proficio zu Ihrem Betrieb?
+            Welche Geschäftschancen stecken in Ihrer Druckerei?
           </span>
           <span style={{ fontSize: 29, marginTop: 24, opacity: 0.82 }}>
             25 Jahre Xerox-Digitaldruck. Heute verbunden mit KI-gestützter

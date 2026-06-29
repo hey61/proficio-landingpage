@@ -5,21 +5,21 @@ const siteUrl = "https://www.proficio-digitaldruck.de";
 
 export const metadata: Metadata = {
   title: {
-    default: "Xerox Proficio PX300 & PX500 Fachcheck | Jens Burghold",
-    template: "%s | Proficio Fachcheck",
+    default: "Zukunftscheck für Druckdienstleister | Jens Burghold",
+    template: "%s | Zukunftscheck Digitaldruck",
   },
   description:
-    "Passt die Xerox Proficio zu Ihrem Betrieb? PX300 und PX500 mit 25 Jahren Xerox-Erfahrung technisch, wirtschaftlich und marktbezogen einordnen.",
+    "Neue Geschäftschancen für Druckereien entwickeln: Anwendungen, Zielgruppen und Wertschöpfung prüfen – und erst danach Technologien wie Xerox Proficio einordnen.",
   metadataBase: new URL(siteUrl),
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Proficio Fachcheck – passt PX300 oder PX500 zu Ihrem Betrieb?",
+    title: "Zukunftscheck für Druckdienstleister",
     description:
-      "25 Jahre Xerox-Digitaldruck, verbunden mit KI-gestützter Geschäftsentwicklung.",
+      "Welche neuen Geschäftschancen stecken in Ihrer Druckerei? 25 Jahre Xerox-Digitaldruck verbunden mit KI-gestützter Geschäftsentwicklung.",
     type: "website",
     locale: "de_DE",
     url: siteUrl,
-    siteName: "Proficio Fachcheck",
+    siteName: "Zukunftscheck Digitaldruck",
   },
   twitter: { card: "summary_large_image" },
   robots: { index: true, follow: true },
@@ -64,13 +64,14 @@ const structuredData = {
     },
     {
       "@type": "Service",
-      "@id": `${siteUrl}/#fachcheck`,
-      name: "Proficio-Potenzialcheck",
+      "@id": `${siteUrl}/#zukunftscheck`,
+      name: "Zukunftscheck für Druckdienstleister",
       description:
-        "Kostenlose fachliche Erstqualifizierung für Druckereien, die Xerox Proficio PX300 oder PX500 prüfen.",
+        "Kostenlose erste Einordnung von Geschäftschancen, Anwendungen, Zielgruppen und Produktionsmöglichkeiten für Druckereien und Druckdienstleister.",
       provider: { "@id": `${siteUrl}/#organisation` },
       areaServed: "DE",
-      serviceType: "Fachliche Erstqualifizierung und Partnervermittlung",
+      serviceType:
+        "Strategische Erstqualifizierung, Geschäftsentwicklung und bei Bedarf Partnervermittlung",
     },
     {
       "@type": "Product",

@@ -18,10 +18,10 @@ export default function Home() {
         <Hero />
         <ProblemSection />
         <SolutionSection />
-        <ProductSection />
-        <HowItWorksSection />
         <TrustSection />
         <AiBusinessSection />
+        <HowItWorksSection />
+        <ProductSection />
         <FAQSection />
         <CTASection />
       </main>

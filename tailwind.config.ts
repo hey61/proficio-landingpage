@@ -1,5 +1,5 @@
 // tailwind.config.ts
-// Proficio Fachcheck – eigenständiges Designsystem
+// Zukunftscheck für Druckdienstleister – eigenständiges Designsystem
 // Stand: 29.06.2026
 
 import type { Config } from "tailwindcss";

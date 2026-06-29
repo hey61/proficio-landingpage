@@ -119,15 +119,16 @@ export default function CTASection() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <div className="mb-4 text-sm font-bold uppercase tracking-[0.18em] text-beyond">
-            Kostenloser Erstcheck
+            Kostenloser Zukunftscheck
           </div>
           <h2 className="text-3xl font-bold leading-tight tracking-tight text-white lg:text-5xl">
-            Passt die Proficio zu Ihrem{" "}
-            <span className="text-beyond">nächsten Entwicklungsschritt?</span>
+            Welche Geschäftschance möchten Sie{" "}
+            <span className="text-beyond">als Nächstes erschließen?</span>
           </h2>
           <p className="mt-6 text-lg leading-relaxed text-white/60">
-            Beschreiben Sie kurz Ihre heutige Produktion und Ihr Ziel. Ich prüfe
-            Ihre Angaben persönlich und melde mich mit einer ersten Einordnung.
+            Beschreiben Sie kurz Ihren Betrieb, Ihre heutige Produktion und Ihr
+            Ziel. Ich prüfe Ihre Angaben persönlich und melde mich mit einer
+            ersten Zukunftseinordnung.
           </p>
         </div>
 
@@ -177,7 +178,7 @@ export default function CTASection() {
                           step >= number ? "text-foreground" : "text-muted"
                         }`}
                       >
-                        {number === 1 ? "Kontakt" : "Ausgangslage"}
+                        {number === 1 ? "Kontakt" : "Zukunftsziel"}
                       </span>
                       {number === 1 && <span className="h-px flex-1 bg-border" />}
                     </div>
@@ -266,7 +267,7 @@ export default function CTASection() {
                         onClick={goToStepTwo}
                         className="mt-2 w-full rounded-lg bg-beyond py-4 text-base font-bold text-white shadow-glow-accent transition-all hover:brightness-110"
                       >
-                        Weiter zur Ausgangslage
+                        Weiter zum Zukunftsziel
                       </button>
                     </div>
                   </div>
@@ -299,7 +300,7 @@ export default function CTASection() {
                         <option>noch unklar</option>
                       </select>
                     </Field>
-                    <Field label="Hauptinteresse *" htmlFor="interest">
+                    <Field label="Wichtigstes Zukunftsthema *" htmlFor="interest">
                       <select
                         id="interest"
                         name="interest"
@@ -309,11 +310,12 @@ export default function CTASection() {
                         className={inputClass}
                       >
                         <option value="">Bitte wählen</option>
-                        <option>Beyond CMYK</option>
+                        <option>neue Premiumprodukte</option>
+                        <option>neue Zielgruppen</option>
+                        <option>mehr Wertschöpfung im Haus</option>
+                        <option>Beyond CMYK und Spezialeffekte</option>
                         <option>Ersatzinvestition</option>
-                        <option>mehr Kapazität</option>
                         <option>Automatisierung</option>
-                        <option>synthetische Medien</option>
                         <option>noch offen</option>
                       </select>
                     </Field>
@@ -327,14 +329,15 @@ export default function CTASection() {
                         className={inputClass}
                       >
                         <option value="">Bitte wählen</option>
-                        <option>erste Einordnung</option>
+                        <option>erste Zukunftseinordnung</option>
+                        <option>Anwendungs- und Marktideen</option>
                         <option>Muster ansehen</option>
-                        <option>Demonstration</option>
-                        <option>konkretes Partnergespräch</option>
+                        <option>Technik oder Demonstration prüfen</option>
+                        <option>Partnergespräch vorbereiten</option>
                       </select>
                     </Field>
                     <div className="sm:col-span-2">
-                      <Field label="Investitionshorizont *" htmlFor="horizon">
+                      <Field label="Zeithorizont *" htmlFor="horizon">
                         <select
                           id="horizon"
                           name="horizon"
@@ -354,7 +357,7 @@ export default function CTASection() {
                     </div>
                     <div className="sm:col-span-2">
                       <Field
-                        label="Was möchten Sie künftig produzieren?"
+                        label="Welche Geschäftschance möchten Sie entwickeln?"
                         htmlFor="productionGoal"
                       >
                         <textarea
@@ -364,7 +367,7 @@ export default function CTASection() {
                           value={form.productionGoal}
                           onChange={(event) => update("productionGoal", event.target.value)}
                           className={inputClass}
-                          placeholder="Produkte, Anwendungen, heutige Engpässe ..."
+                          placeholder="Produkte, Zielkunden, heutige Engpässe oder eine erste Idee ..."
                         />
                       </Field>
                     </div>
@@ -413,7 +416,7 @@ export default function CTASection() {
                         disabled={sending}
                         className="flex-1 rounded-lg bg-beyond py-4 text-base font-bold text-white shadow-glow-accent transition-all hover:brightness-110 disabled:cursor-wait disabled:opacity-60"
                       >
-                        {sending ? "Wird gesendet …" : "Fachcheck anfragen"}
+                        {sending ? "Wird gesendet …" : "Zukunftscheck anfragen"}
                       </button>
                     </div>
                   </div>
@@ -448,7 +451,7 @@ export default function CTASection() {
             <div className="mt-5 rounded-2xl border border-white/10 bg-white/5 p-7">
               <h3 className="text-lg font-bold">Was danach passiert</h3>
               <ol className="mt-5 space-y-4 text-sm leading-relaxed text-white/60">
-                <li>1. Ich prüfe Ihre Angaben persönlich.</li>
+                <li>1. Ich ordne Ihre Angaben persönlich und geschäftlich ein.</li>
                 <li>2. Wir klären offene Fragen direkt miteinander.</li>
                 <li>
                   3. Nur wenn es sinnvoll ist und Sie zustimmen, stelle ich den
