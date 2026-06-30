@@ -82,6 +82,9 @@ CONTACT_FROM=Zukunftscheck Digitaldruck <jens@proficio-digitaldruck.de>
 ```
 
 Das Passwort niemals in GitHub, den Vault oder eine Chat-Nachricht schreiben.
+Zwingend erforderlich sind `SMTP_HOST`, `SMTP_USER` und `SMTP_PASS`.
+`SMTP_PORT` verwendet ohne Angabe Port 465; Empfänger und Absender werden ohne
+Angabe aus `SMTP_USER` gebildet.
 
 ## Vor Veröffentlichung
 

@@ -81,24 +81,27 @@ export async function POST(request: Request) {
     );
   }
 
-  const {
-    SMTP_HOST,
-    SMTP_PORT,
-    SMTP_USER,
-    SMTP_PASS,
-    CONTACT_TO,
-    CONTACT_FROM,
-  } = process.env;
+  const smtpHost = process.env.SMTP_HOST;
+  const smtpPort = process.env.SMTP_PORT || "465";
+  const smtpUser = process.env.SMTP_USER;
+  const smtpPass = process.env.SMTP_PASS;
+  const contactTo = process.env.CONTACT_TO || smtpUser;
+  const contactFrom =
+    process.env.CONTACT_FROM ||
+    (smtpUser ? `Zukunftscheck Digitaldruck <${smtpUser}>` : undefined);
 
-  if (
-    !SMTP_HOST ||
-    !SMTP_PORT ||
-    !SMTP_USER ||
-    !SMTP_PASS ||
-    !CONTACT_TO ||
-    !CONTACT_FROM
-  ) {
-    console.error("Zukunftscheck: SMTP-Konfiguration unvollständig.");
+  const missingVariables = [
+    ["SMTP_HOST", smtpHost],
+    ["SMTP_USER", smtpUser],
+    ["SMTP_PASS", smtpPass],
+  ]
+    .filter(([, value]) => !value)
+    .map(([name]) => name);
+
+  if (missingVariables.length > 0) {
+    console.error(
+      `Zukunftscheck: SMTP-Konfiguration unvollständig. Es fehlen: ${missingVariables.join(", ")}`,
+    );
     return NextResponse.json(
       {
         error:
@@ -108,7 +111,7 @@ export async function POST(request: Request) {
     );
   }
 
-  const port = Number(SMTP_PORT);
+  const port = Number(smtpPort);
   if (!Number.isInteger(port)) {
     console.error("Zukunftscheck: SMTP_PORT ist ungültig.");
     return NextResponse.json(
@@ -118,10 +121,10 @@ export async function POST(request: Request) {
   }
 
   const transporter = nodemailer.createTransport({
-    host: SMTP_HOST,
+    host: smtpHost,
     port,
     secure: port === 465,
-    auth: { user: SMTP_USER, pass: SMTP_PASS },
+    auth: { user: smtpUser, pass: smtpPass },
   });
 
   const text = [
@@ -148,8 +151,8 @@ export async function POST(request: Request) {
 
   try {
     await transporter.sendMail({
-      from: CONTACT_FROM,
-      to: CONTACT_TO,
+      from: contactFrom,
+      to: contactTo,
       replyTo: { name, address: email },
       subject: `Neue Zukunftscheck-Anfrage – ${company.replace(/[\r\n]/g, " ")}`,
       text,
