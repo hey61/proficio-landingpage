@@ -74,22 +74,6 @@ const structuredData = {
       serviceType:
         "Strategische Erstqualifizierung, Geschäftsentwicklung und bei Bedarf Partnervermittlung",
     },
-    {
-      "@type": "Product",
-      name: "Xerox Proficio PX300",
-      brand: { "@type": "Brand", name: "Xerox" },
-      manufacturer: { "@type": "Organization", name: "Xerox" },
-      description:
-        "Produktionsdrucksystem mit Ultra-HD-Bildqualität, bis zu 85 Seiten pro Minute und optionaler fünfter Farbstation.",
-    },
-    {
-      "@type": "Product",
-      name: "Xerox Proficio PX500",
-      brand: { "@type": "Brand", name: "Xerox" },
-      manufacturer: { "@type": "Organization", name: "Xerox" },
-      description:
-        "Produktionsdrucksystem mit Ultra-HD-Bildqualität, bis zu 100 Seiten pro Minute und optionaler fünfter Farbstation.",
-    },
   ],
 };
 
