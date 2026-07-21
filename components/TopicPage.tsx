@@ -19,6 +19,9 @@ type TopicPageProps = {
     intro?: string;
     items: Array<{ title: string; text: string }>;
   };
+  checkEyebrow?: string;
+  checkTitle?: string;
+  checkIntro?: string;
   checkItems: string[];
   technologyTitle: string;
   technologyText: string[];
@@ -44,6 +47,9 @@ export default function TopicPage({
   opportunitiesIntro,
   opportunities,
   decisionSection,
+  checkEyebrow = "Zukunftscheck",
+  checkTitle = "Was wir vor einer Investition klären",
+  checkIntro,
   checkItems,
   technologyTitle,
   technologyText,
@@ -215,11 +221,16 @@ export default function TopicPage({
           <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
             <div>
               <div className="text-sm font-bold uppercase tracking-[0.18em] text-beyond">
-                Zukunftscheck
+                {checkEyebrow}
               </div>
               <h2 className="mt-4 text-3xl font-bold leading-tight tracking-tight lg:text-5xl">
-                Was wir vor einer Investition klären
+                {checkTitle}
               </h2>
+              {checkIntro && (
+                <p className="mt-6 text-lg leading-relaxed text-white/70">
+                  {checkIntro}
+                </p>
+              )}
             </div>
             <ul className="grid gap-3">
               {checkItems.map((item) => (

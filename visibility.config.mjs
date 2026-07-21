@@ -32,7 +32,8 @@ export default {
         "spezialdruck",
         "druckveredelung",
         "fluoreszierende",
-        "beyond cmyk",
+        "musterbuch",
+        "qualität",
       ],
     },
     {
