@@ -19,6 +19,10 @@ export default {
         "kleinauflagen",
         "verpackungsmuster",
         "personalisierte verpackungen",
+        "individuelle verpackungen",
+        "produktverpackung",
+        "kleinserie",
+        "konfektionierung",
       ],
     },
     {

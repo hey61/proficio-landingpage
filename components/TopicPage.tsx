@@ -5,6 +5,7 @@ type TopicPageProps = {
   eyebrow: string;
   title: string;
   lead: string;
+  heroCtaLabel?: string;
   introTitle: string;
   intro: string[];
   challengesTitle: string;
@@ -12,16 +13,29 @@ type TopicPageProps = {
   opportunitiesTitle: string;
   opportunitiesIntro: string;
   opportunities: Array<{ title: string; text: string }>;
+  decisionSection?: {
+    eyebrow?: string;
+    title: string;
+    intro?: string;
+    items: Array<{ title: string; text: string }>;
+  };
   checkItems: string[];
   technologyTitle: string;
   technologyText: string[];
+  faqs?: Array<{ question: string; answer: string }>;
   relatedLinks: Array<{ href: string; label: string }>;
+  closing?: {
+    title: string;
+    text: string;
+    ctaLabel: string;
+  };
 };
 
 export default function TopicPage({
   eyebrow,
   title,
   lead,
+  heroCtaLabel = "Potenzial persönlich prüfen",
   introTitle,
   intro,
   challengesTitle,
@@ -29,10 +43,17 @@ export default function TopicPage({
   opportunitiesTitle,
   opportunitiesIntro,
   opportunities,
+  decisionSection,
   checkItems,
   technologyTitle,
   technologyText,
+  faqs,
   relatedLinks,
+  closing = {
+    title: "Sie müssen die nächste Maschine noch nicht kennen",
+    text: "Beschreiben Sie Ihre Ausgangslage. Ich ordne Anwendungen, Zielgruppen, Vermarktung und die technisch sinnvollen nächsten Schritte persönlich ein.",
+    ctaLabel: "Kostenlosen Erstcheck starten",
+  },
 }: TopicPageProps) {
   return (
     <>
@@ -77,7 +98,7 @@ export default function TopicPage({
                 href="/#kontakt"
                 className="rounded-lg bg-beyond px-7 py-4 text-center text-base font-bold text-white shadow-glow transition-all hover:brightness-110"
               >
-                Potenzial persönlich prüfen
+                {heroCtaLabel}
               </Link>
               <Link
                 href="/"
@@ -152,6 +173,44 @@ export default function TopicPage({
           </div>
         </section>
 
+        {decisionSection && (
+          <section className="bg-light-bg py-20 lg:py-28">
+            <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+              <div className="max-w-3xl">
+                {decisionSection.eyebrow && (
+                  <div className="mb-4 text-sm font-bold uppercase tracking-[0.18em] text-primary">
+                    {decisionSection.eyebrow}
+                  </div>
+                )}
+                <h2 className="text-3xl font-bold leading-tight tracking-tight lg:text-5xl">
+                  {decisionSection.title}
+                </h2>
+                {decisionSection.intro && (
+                  <p className="mt-6 text-lg leading-relaxed text-muted">
+                    {decisionSection.intro}
+                  </p>
+                )}
+              </div>
+              <ol className="mt-12 grid gap-5 lg:grid-cols-5">
+                {decisionSection.items.map((item, index) => (
+                  <li
+                    key={item.title}
+                    className="rounded-2xl border border-border bg-white p-6"
+                  >
+                    <div className="text-sm font-extrabold tracking-widest text-beyond">
+                      {String(index + 1).padStart(2, "0")}
+                    </div>
+                    <h3 className="mt-4 text-lg font-bold">{item.title}</h3>
+                    <p className="mt-3 text-sm leading-relaxed text-muted">
+                      {item.text}
+                    </p>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          </section>
+        )}
+
         <section className="bg-primary-darker py-20 text-white lg:py-28">
           <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-2 lg:px-8">
             <div>
@@ -189,7 +248,35 @@ export default function TopicPage({
           </div>
         </section>
 
-        <section className="bg-light-bg py-16">
+        {faqs && faqs.length > 0 && (
+          <section className="bg-light-bg py-20 lg:py-28">
+            <div className="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+              <div className="text-center">
+                <div className="mb-4 text-sm font-bold uppercase tracking-[0.18em] text-primary">
+                  Orientierung vor dem Erstgespräch
+                </div>
+                <h2 className="text-3xl font-bold leading-tight tracking-tight lg:text-5xl">
+                  Häufige Fragen
+                </h2>
+              </div>
+              <div className="mt-12 grid gap-4">
+                {faqs.map((faq) => (
+                  <article
+                    key={faq.question}
+                    className="rounded-2xl border border-border bg-white p-6 sm:p-7"
+                  >
+                    <h3 className="text-lg font-bold">{faq.question}</h3>
+                    <p className="mt-3 leading-relaxed text-muted">
+                      {faq.answer}
+                    </p>
+                  </article>
+                ))}
+              </div>
+            </div>
+          </section>
+        )}
+
+        <section className={`${faqs?.length ? "bg-white" : "bg-light-bg"} py-16`}>
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <h2 className="text-2xl font-bold">Weitere relevante Themen</h2>
             <div className="mt-5 flex flex-wrap gap-3">
@@ -209,22 +296,40 @@ export default function TopicPage({
         <section className="bg-gradient-to-br from-primary-dark to-primary py-20 text-white">
           <div className="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
             <h2 className="text-3xl font-bold leading-tight tracking-tight lg:text-5xl">
-              Sie müssen die nächste Maschine noch nicht kennen
+              {closing.title}
             </h2>
             <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-white/75">
-              Beschreiben Sie Ihre Ausgangslage. Ich ordne Anwendungen,
-              Zielgruppen, Vermarktung und die technisch sinnvollen nächsten
-              Schritte persönlich ein.
+              {closing.text}
             </p>
             <Link
               href="/#kontakt"
               className="mt-9 inline-flex rounded-lg bg-beyond px-7 py-4 text-base font-bold text-white shadow-glow-accent transition-all hover:brightness-110"
             >
-              Kostenlosen Erstcheck starten
+              {closing.ctaLabel}
             </Link>
           </div>
         </section>
       </main>
+
+      {faqs && faqs.length > 0 && (
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "FAQPage",
+              mainEntity: faqs.map((faq) => ({
+                "@type": "Question",
+                name: faq.question,
+                acceptedAnswer: {
+                  "@type": "Answer",
+                  text: faq.answer,
+                },
+              })),
+            }),
+          }}
+        />
+      )}
 
       <Footer />
     </>
